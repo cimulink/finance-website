@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinanceFlow - Blog Wireframe</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Feather Icons (for simple icons) -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <style>
+        /* Apply Inter font family */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom scrollbar for aesthetics */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-track {
+            background-color: #f1f5f9;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- ===== HEADER / NAVIGATION ===== -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <i data-feather="bar-chart-2" class="text-blue-600"></i>
+                    <span class="ml-2 text-2xl font-bold text-slate-900">FinanceFlow</span>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex md:items-center md:space-x-6">
+                    <a href="#" class="text-slate-600 hover:text-blue-600 font-medium px-3 py-2 rounded-md transition" onclick="showView('blog-list-view')">Blog</a>
+                    <a href="#" class="text-slate-600 hover:text-blue-600 font-medium px-3 py-2 rounded-md transition">Calculators</a>
+                    <a href="#" class="text-slate-600 hover:text-blue-600 font-medium px-3 py-2 rounded-md transition">Products</a>
+                    <a href="#" class="text-slate-600 hover:text-blue-600 font-medium px-3 py-2 rounded-md transition">About Us</a>
+                </div>
+                
+                <!-- Subscribe Button -->
+                <div>
+                    <a href="#subscribe" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition">
+                        Subscribe
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button (placeholder) -->
+                <div class="md:hidden">
+                    <button class="text-slate-500 hover:text-slate-800">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ===== MAIN CONTENT AREA ===== -->
+    <main id="app-container" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+
+        <!-- ===== VIEW 1: BLOG LIST (Default View) ===== -->
+        <div id="blog-list-view">
+            
+            <!-- Hero / Email Subscription -->
+            <section id="subscribe" class="bg-blue-600 rounded-lg shadow-lg p-8 md:p-12 text-center text-white mb-12">
+                <h1 class="text-3xl md:text-4xl font-bold mb-4">Get Smarter About Your Money.</h1>
+                <p class="text-lg text-blue-100 mb-6 max-w-2xl mx-auto">Subscribe to our newsletter for free financial tips, market analysis, and strategies sent straight to your inbox.</p>
+                <form class="flex flex-col sm:flex-row max-w-lg mx-auto gap-3">
+                    <input type="email" placeholder="Enter your email" class="flex-grow w-full px-4 py-3 rounded-md text-slate-900 focus:ring-2 focus:ring-white" required>
+                    <button type="submit" class="flex-shrink-0 px-6 py-3 rounded-md font-semibold bg-white text-blue-600 hover:bg-blue-50 shadow-md transition">Sign Up</button>
+                </form>
+            </section>
+
+            <!-- Product Buttons -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold text-slate-900 mb-4 text-center">Our Financial Products</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <a href="#" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition flex flex-col items-center text-center">
+                        <i data-feather="briefcase" class="text-blue-600 h-8 w-8 mb-3"></i>
+                        <span class="font-semibold text-slate-700">PMS Services</span>
+                    </a>
+                    <a href="#" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition flex flex-col items-center text-center">
+                        <i data-feather="shield" class="text-green-600 h-8 w-8 mb-3"></i>
+                        <span class="font-semibold text-slate-700">Insurance</span>
+                    </a>
+                    <a href="#" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition flex flex-col items-center text-center">
+                        <i data-feather="home" class="text-red-600 h-8 w-8 mb-3"></i>
+                        <span class="font-semibold text-slate-700">Home Loans</span>
+                    </a>
+                    <a href="#" class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition flex flex-col items-center text-center">
+                        <i data-feather="credit-card" class="text-purple-600 h-8 w-8 mb-3"></i>
+                        <span class="font-semibold text-slate-700">Credit Cards</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Main Content Grid (Blog + Sidebar) -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Blog Feed (Main Column) -->
+                <div class="lg:col-span-2">
+                    <h2 class="text-3xl font-bold text-slate-900 mb-6">The FinanceFlow Blog</h2>
+                    
+                    <!-- Filters -->
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="text-sm font-medium text-slate-600 self-center mr-2">Filter by:</span>
+                        <button class="px-4 py-1 text-sm font-medium rounded-full bg-blue-600 text-white">All Topics</button>
+                        <button class="px-4 py-1 text-sm font-medium rounded-full bg-white text-slate-700 border border-slate-300 hover:bg-slate-100 transition">Investing</button>
+                        <button class="px-4 py-1 text-sm font-medium rounded-full bg-white text-slate-700 border border-slate-300 hover:bg-slate-100 transition">Saving</button>
+                        <button class="px-4 py-1 text-sm font-medium rounded-full bg-white text-slate-700 border border-slate-300 hover:bg-slate-100 transition">Debt</button>
+                        <button class="px-4 py-1 text-sm font-medium rounded-full bg-white text-slate-700 border border-slate-300 hover:bg-slate-100 transition">Taxes</button>
+                    </div>
+
+                    <!-- Tabs: Latest / Popular -->
+                    <div class="mb-6 border-b border-slate-200">
+                        <nav class="flex -mb-px space-x-6">
+                            <a href="#" class="py-3 px-1 border-b-2 border-blue-600 text-blue-600 font-semibold">Latest Blogs</a>
+                            <a href="#" class="py-3 px-1 border-b-2 border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300 font-medium">Popular Blogs</a>
+                        </nav>
+                    </div>
+
+                    <!-- Blog Post Card Grid -->
+                    <div class="space-y-8">
+                        <!-- Blog Post Card 1 -->
+                        <article class="bg-white shadow-md rounded-lg overflow-hidden flex flex-col md:flex-row">
+                            <img src="https://placehold.co/600x400/3B82F6/FFFFFF?text=Finance+Image" alt="Blog post image" class="md:w-1/3 h-48 md:h-auto object-cover">
+                            <div class="p-6 flex flex-col justify-between">
+                                <div>
+                                    <span class="text-xs font-semibold uppercase text-blue-600">Investing</span>
+                                    <h3 class="mt-2 text-2xl font-bold text-slate-900 hover:text-blue-700 transition">
+                                        <!-- This link triggers the view change -->
+                                        <a href="#" onclick="event.preventDefault(); showView('blog-post-view')">The 5 Simple Rules of Successful Investing</a>
+                                    </h3>
+                                    <p class="mt-3 text-slate-600">Learn the foundational rules that separate successful investors from the rest. It's simpler than you think...</p>
+                                </div>
+                                <div class="mt-4 flex items-center space-x-3">
+                                    <img src="https://placehold.co/40x40/E2E8F0/334155?text=Author" alt="Author" class="w-10 h-10 rounded-full">
+                                    <div>
+                                        <p class="font-medium text-slate-800">Jane Doe</p>
+                                        <p class="text-sm text-slate-500">Oct 28, 2025 · 6 min read</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Blog Post Card 2 -->
+                        <article class="bg-white shadow-md rounded-lg overflow-hidden flex flex-col md:flex-row">
+                            <img src="https://placehold.co/600x400/10B981/FFFFFF?text=Saving+Tips" alt="Blog post image" class="md:w-1/3 h-48 md:h-auto object-cover">
+                            <div class="p-6 flex flex-col justify-between">
+                                <div>
+                                    <span class="text-xs font-semibold uppercase text-green-600">Saving</span>
+                                    <h3 class="mt-2 text-2xl font-bold text-slate-900 hover:text-blue-700 transition">
+                                        <a href="#" onclick="event.preventDefault(); showView('blog-post-view')">How to Build an Emergency Fund in 6 Months</a>
+                                    </h3>
+                                    <p class="mt-3 text-slate-600">An emergency fund is your financial seatbelt. Here's a step-by-step plan to build yours, even on a tight budget...</p>
+                                </div>
+                                <div class="mt-4 flex items-center space-x-3">
+                                    <img src="https://placehold.co/40x40/E2E8F0/334155?text=Author" alt="Author" class="w-10 h-10 rounded-full">
+                                    <div>
+                                        <p class="font-medium text-slate-800">John Smith</p>
+                                        <p class="text-sm text-slate-500">Oct 25, 2025 · 8 min read</p>
+                                    </div>
+                                </div>
+                            </article>
+                        
+                        <!-- More cards... -->
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="mt-10 flex justify-center">
+                        <nav class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px">
+                            <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-slate-300 bg-white text-sm font-medium text-slate-500 hover:bg-slate-50">Prev</a>
+                            <a href="#" class="relative inline-flex items-center px-4 py-2 border border-slate-300 bg-white text-sm font-medium text-blue-600">1</a>
+                            <a href="#" class="relative inline-flex items-center px-4 py-2 border border-slate-300 bg-white text-sm font-medium text-slate-700 hover:bg-slate-50">2</a>
+                            <a href="#" class="relative inline-flex items-center px-4 py-2 border border-slate-300 bg-white text-sm font-medium text-slate-700 hover:bg-slate-50">3</a>
+                            <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-slate-300 bg-white text-sm font-medium text-slate-500 hover:bg-slate-50">Next</a>
+                        </nav>
+                    </div>
+
+                </div>
+
+                <!-- Sidebar (Aside) -->
+                <aside class="lg:col-span-1 space-y-8">
+                    <!-- Mini Calculators -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-slate-900 mb-4">Quick Calculators</h3>
+                        <div class="space-y-6">
+                            <!-- Calculator 1: Simple Interest -->
+                            <div>
+                                <label for="principal" class="block text-sm font-medium text-slate-700">Simple Interest</label>
+                                <input type="number" id="principal" placeholder="Principal ($)" class="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                <input type="number" id="rate" placeholder="Rate (%)" class="mt-2 block w-full rounded-md border-slate-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                <input type="number" id="time" placeholder="Time (Years)" class="mt-2 block w-full rounded-md border-slate-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                <button class="mt-3 w-full px-4 py-2 rounded-md font-medium bg-blue-100 text-blue-700 hover:bg-blue-200 transition">Calculate</button>
+                            </div>
+                            <!-- Calculator 2: EMI -->
+                            <div>
+                                <label for="loan" class="block text-sm font-medium text-slate-700">Loan EMI</label>
+                                <input type="number" id="loan" placeholder="Loan Amount ($)" class="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                <input type="number" id="loan-rate" placeholder="Rate (%)" class="mt-2 block w-full rounded-md border-slate-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                <input type="number" id="loan-term" placeholder="Term (Months)" class="mt-2 block w-full rounded-md border-slate-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                <button class="mt-3 w-full px-4 py-2 rounded-md font-medium bg-blue-100 text-blue-700 hover:bg-blue-200 transition">Calculate</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Media Links -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-slate-900 mb-4">Follow Us</h3>
+                        <div class="flex justify-around">
+                            <a href="#" class="text-slate-500 hover:text-blue-600 transition"><i data-feather="twitter" class="w-8 h-8"></i></a>
+                            <a href="#" class="text-slate-500 hover:text-blue-800 transition"><i data-feather="linkedin" class="w-8 h-8"></i></a>
+                            <a href="#" class="text-slate-500 hover:text-pink-600 transition"><i data-feather="instagram" class="w-8 h-8"></i></a>
+                            <a href="#" class="text-slate-500 hover:text-blue-700 transition"><i data-feather="facebook" class="w-8 h-8"></i></a>
+                        </div>
+                    </div>
+                </aside>
+
+            </div>
+        </div>
+
+
+        <!-- ===== VIEW 2: BLOG POST (Hidden by default) ===== -->
+        <div id="blog-post-view" class="hidden">
+            <!-- Main Content Grid (Article + Sidebar) -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Blog Article (Main Column) -->
+                <article class="lg:col-span-2 bg-white shadow-lg rounded-lg overflow-hidden">
+                    <div class="p-6 md:p-10">
+                        <!-- Back Link -->
+                        <a href="#" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium mb-4" onclick="event.preventDefault(); showView('blog-list-view')">
+                            <i data-feather="arrow-left" class="mr-2 h-4 w-4"></i>
+                            Back to all posts
+                        </a>
+
+                        <!-- Category & Title -->
+                        <span class="block text-sm font-semibold uppercase text-blue-600 mb-2">Investing</span>
+                        <h1 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">The 5 Simple Rules of Successful Investing</h1>
+                        
+                        <!-- Author Meta -->
+                        <div class="flex items-center space-x-3 mb-6">
+                            <img src="https://placehold.co/40x40/E2E8F0/334155?text=Author" alt="Author" class="w-10 h-10 rounded-full">
+                            <div>
+                                <p class="font-medium text-slate-800">Jane Doe</p>
+                                <p class="text-sm text-slate-500">Oct 28, 2025 · 6 min read</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Main Image -->
+                    <img src="https://placehold.co/1200x600/3B82F6/FFFFFF?text=Successful+Investing" alt="Blog post image" class="w-full h-auto object-cover">
+                    
+                    <!-- Article Content -->
+                    <div class="prose prose-lg max-w-none p-6 md:p-10 text-slate-700">
+                        <p>This is where the main content of the blog post will go. We're demonstrating various formatting options that would be available in your CMS.</p>
+                        
+                        <p>Learn the foundational rules that separate successful investors from the rest. It's simpler than you think, but it requires discipline and a long-term mindset. Let's dive in.</p>
+                        
+                        <h2>Rule 1: Start Early and Be Consistent</h2>
+                        <p>The most powerful force in investing is <strong>compound interest</strong>. The earlier you start, the more time your money has to grow. Even small, consistent contributions can grow into a substantial sum over time.</p>
+                        
+                        <blockquote>
+                            "Compound interest is the eighth wonder of the world. He who understands it, earns it; he who doesn't, pays it." - Albert Einstein (allegedly)
+                        </blockquote>
+                        
+                        <h2>Rule 2: Understand Your Risk Tolerance</h2>
+                        <p>Not all investments are created equal. Some, like stocks, offer higher potential returns but come with higher risk. Others, like bonds, are safer but offer lower returns.</p>
+                        <ul>
+                            <li><strong>Aggressive:</strong> Comfortable with large swings for high growth.</li>
+                            <li><strong>Moderate:</strong> A balanced approach of stocks and bonds.</li>
+                            <li><strong>Conservative:</strong> Prioritizes capital preservation.</li>
+                        </ul>
+                        
+                        <h2>Rule 3: Diversify, Diversify, Diversify</h2>
+                        <p>Don't put all your eggs in one basket. Diversification means spreading your investments across different asset classes (stocks, bonds, real estate) and sectors (tech,
+                        healthcare, energy).</p>
+
+                        <!-- Placeholder Image in post -->
+                        <figure>
+                            <img src="https://placehold.co/800x400/E2E8F0/334155?text=Diversification+Chart" alt="Diversification chart" class="rounded-md">
+                            <figcaption class="text-center text-sm text-slate-500 mt-2">A diversified portfolio reduces risk.</figcaption>
+                        </figure>
+
+                        <p>... and so on. The article would continue with Rules 4 and 5, and a concluding summary.</p>
+
+                    </div>
+
+                    <!-- CTA at end of post -->
+                    <div class="p-6 md:p-10 bg-slate-50 border-t border-slate-200">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-3">Ready to Start Your Financial Journey?</h3>
+                        <p class="text-slate-600 mb-6">Reading is the first step. The next is taking action. Let our experts help you build a personalized financial plan.</p>
+                        <a href="#" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition">
+                            Book a Free Consultation
+                        </a>
+                    </div>
+
+                    <!-- Comment Section -->
+                    <div class="p-6 md:p-10 border-t border-slate-200">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-6">Leave a Comment</h3>
+                        
+                        <!-- Comment Form -->
+                        <form class="space-y-4 mb-8">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-slate-700">Name</label>
+                                    <input type="text" id="name" class="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-slate-700">Email (will not be published)</label>
+                                    <input type="email" id="email" class="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                </div>
+                            </div>
+                            <div>
+                                <label for="comment" class="block text-sm font-medium text-slate-700">Comment</label>
+                                <textarea id="comment" rows="4" class="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"></textarea>
+                            </div>
+                            <div>
+                                <button type="submit" class="inline-flex items-center px-5 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-slate-700 hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-500 transition">
+                                    Post Comment
+                                </button>
+                            </div>
+                        </form>
+
+                        <!-- Existing Comments -->
+                        <div class="space-y-6">
+                            <h4 class="text-xl font-bold text-slate-900">2 Comments</h4>
+                            <!-- Comment 1 -->
+                            <div class="flex space-x-3">
+                                <img src="https://placehold.co/40x40/E2E8F0/334155?text=User" alt="User avatar" class="w-10 h-10 rounded-full">
+                                <div class="flex-1">
+                                    <p class="font-medium text-slate-800">John Smith</p>
+                                    <p class="text-sm text-slate-500 mb-2">Oct 29, 2025</p>
+                                    <p class="text-slate-600">Great article! Rule 3 is something I've always struggled with. This makes it much clearer.</p>
+                                </div>
+                            </div>
+                            <!-- Comment 2 -->
+                            <div class="flex space-x-3">
+                                <img src="https://placehold.co/40x40/E2E8F0/334155?text=User" alt="User avatar" class="w-10 h-10 rounded-full">
+                                <div class="flex-1">
+                                    <p class="font-medium text-slate-800">Maria Garcia</p>
+                                    <p class="text-sm text-slate-500 mb-2">Oct 29, 2025</p>
+                                    <p class="text-slate-600">Thanks for the breakdown on compound interest. It's a great motivator to start now!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </article>
+
+                <!-- Persistent Sidebar (Same as on blog list page) -->
+                <aside class="lg:col-span-1 space-y-8">
+                    <!-- Mini Calculators -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-slate-900 mb-4">Quick Calculators</h3>
+                        <div class="space-y-6">
+                            <!-- Calculator 1: Simple Interest -->
+                            <div>
+                                <label for="principal-2" class="block text-sm font-medium text-slate-700">Simple Interest</label>
+                                <input type="number" id="principal-2" placeholder="Principal ($)" class="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                <input type="number" id="rate-2" placeholder="Rate (%)" class="mt-2 block w-full rounded-md border-slate-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                <input type="number" id="time-2" placeholder="Time (Years)" class="mt-2 block w-full rounded-md border-slate-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                                <button class="mt-3 w-full px-4 py-2 rounded-md font-medium bg-blue-100 text-blue-700 hover:bg-blue-200 transition">Calculate</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Media Links -->
+                    <div class="bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-xl font-bold text-slate-900 mb-4">Follow Us</h3>
+                        <div class="flex justify-around">
+                            <a href="#" class="text-slate-500 hover:text-blue-600 transition"><i data-feather="twitter" class="w-8 h-8"></i></a>
+                            <a href="#" class="text-slate-500 hover:text-blue-800 transition"><i data-feather="linkedin" class="w-8 h-8"></i></a>
+                            <a href="#" class="text-slate-500 hover:text-pink-600 transition"><i data-feather="instagram" class="w-8 h-8"></i></a>
+                            <a href="#" class="text-slate-500 hover:text-blue-700 transition"><i data-feather="facebook" class="w-8 h-8"></i></a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="bg-slate-800 text-slate-300 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <!-- Brand -->
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-3">FinanceFlow</h4>
+                    <p class="text-sm">Smarter financial decisions.</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="hover:text-white"><i data-feather="twitter"></i></a>
+                        <a href="#" class="hover:text-white"><i data-feather="linkedin"></i></a>
+                        <a href="#" class="hover:text-white"><i data-feather="facebook"></i></a>
+                    </div>
+                </div>
+                <!-- Navigation -->
+                <div>
+                    <h5 class="font-semibold text-slate-100 uppercase tracking-wide mb-3">Company</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white">About Us</a></li>
+                        <li><a href="#" class="hover:text-white">Careers</a></li>
+                        <li><a href="#" class="hover:text-white">Press</a></li>
+                    </ul>
+                </div>
+                <!-- Resources -->
+                <div>
+                    <h5 class="font-semibold text-slate-100 uppercase tracking-wide mb-3">Resources</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white">Blog</a></li>
+                        <li><a href="#" class="hover:text-white">Calculators</a></li>
+                        <li><a href="#" class="hover:text-white">Glossary</a></li>
+                    </ul>
+                </div>
+                <!-- Legal -->
+                <div>
+                    <h5 class="font-semibold text-slate-100 uppercase tracking-wide mb-3">Legal</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-white">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-slate-700 pt-8 text-center text-sm">
+                <p>&copy; 2025 FinanceFlow. All rights reserved. This is a wireframe for illustrative purposes.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // Initialize Feather Icons
+        feather.replace();
+
+        // Simple View-Switching Logic
+        const blogListView = document.getElementById('blog-list-view');
+        const blogPostView = document.getElementById('blog-post-view');
+
+        function showView(viewId) {
+            // Hide all views
+            blogListView.classList.add('hidden');
+            blogPostView.classList.add('hidden');
+
+            // Show the target view
+            const targetView = document.getElementById(viewId);
+            if (targetView) {
+                targetView.classList.remove('hidden');
+            }
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Initially, the 'blog-list-view' is shown by default (no 'hidden' class)
+        // The 'blog-post-view' has the 'hidden' class
+    </script>
+
+</body>
+</html>
