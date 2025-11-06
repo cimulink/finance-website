@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Investally - Financial Planning & Insights</title>
+    <title>Investally - Your Partner in Financial Success | PMS, Insurance & Loans</title>
+    <meta name="description" content="Investally helps Indian families achieve financial freedom through expert guidance in Portfolio Management, Insurance, and Home Loans. Learn, calculate, and grow your wealth.">
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Feather Icons CDN -->
@@ -11,584 +13,2027 @@
     <!-- Google Font: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
     <style>
-        /* Apply Inter font family */
         body {
             font-family: 'Inter', sans-serif;
         }
-        /* Custom styles for Tailwind's typography plugin */
-        .prose {
-            color: #374151; /* text-gray-700 */
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
         }
-        .prose h1, .prose h2, .prose h3 {
-            color: #111827; /* text-gray-900 */
+
+        /* Gradient text */
+        .gradient-text {
+            background: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-        .prose a {
-            color: #0d9488; /* text-teal-600 */
+
+        /* Animated gradient background */
+        .gradient-bg {
+            background: linear-gradient(135deg, #0d9488 0%, #14b8a6 50%, #0d9488 100%);
+            background-size: 200% 200%;
+            animation: gradient 15s ease infinite;
         }
-        .prose strong {
-            color: #111827; /* text-gray-900 */
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Card hover effect */
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        /* Dropdown menu */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 250px;
+            box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            border-radius: 0.75rem;
+            padding: 0.5rem 0;
+            margin-top: 0.5rem;
+            z-index: 100;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu a {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 1.25rem;
+            color: #334155;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .dropdown-menu a:hover {
+            background: #f0fdfa;
+            color: #0d9488;
+        }
+
+        .dropdown-menu a i {
+            margin-right: 0.75rem;
         }
     </style>
 </head>
-<body class="bg-slate-50">
+<body class="bg-slate-50 text-slate-900">
 
-    <!-- Main Container -->
-    <div id="variant-classic-focused">
-        <!-- ===== HEADER / NAVIGATION ===== -->
-        <header class="bg-white shadow-sm sticky top-0 z-50">
-            <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex justify-between items-center h-16">
-                    
-                    <!-- Logo -->
-                    <div class="flex-shrink-0 flex items-center">
-                        <!-- Updated Icon and Name -->
-                        <i data-feather="bar-chart-2" class="text-teal-600 h-7 w-7"></i>
-                        <span class="ml-2 text-2xl font-bold text-slate-900">Investally</span>
+    <!-- ===== HEADER / NAVIGATION ===== -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#home" class="flex items-center">
+                        <i data-feather="trending-up" class="text-teal-600 h-8 w-8"></i>
+                        <span class="ml-2 text-2xl font-bold text-slate-900">Invest<span class="text-teal-600">ally</span></span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex md:items-center md:space-x-8">
+                    <a href="#home" class="text-slate-700 hover:text-teal-600 font-medium transition">Home</a>
+                    <a href="#about" class="text-slate-700 hover:text-teal-600 font-medium transition">About</a>
+                    <a href="#team" class="text-slate-700 hover:text-teal-600 font-medium transition">Team</a>
+
+                    <!-- Products Dropdown -->
+                    <div class="dropdown">
+                        <a href="#products" class="text-slate-700 hover:text-teal-600 font-medium transition inline-flex items-center">
+                            Products
+                            <i data-feather="chevron-down" class="h-4 w-4 ml-1"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="#products">
+                                <i data-feather="briefcase" class="h-5 w-5 text-teal-600"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">Portfolio Management</div>
+                                    <div class="text-xs text-slate-500">Professional PMS Services</div>
+                                </div>
+                            </a>
+                            <a href="#products">
+                                <i data-feather="shield" class="h-5 w-5 text-green-600"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">Insurance Solutions</div>
+                                    <div class="text-xs text-slate-500">Life & Health Coverage</div>
+                                </div>
+                            </a>
+                            <a href="#products">
+                                <i data-feather="home" class="h-5 w-5 text-blue-600"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">Home & Personal Loans</div>
+                                    <div class="text-xs text-slate-500">Best Interest Rates</div>
+                                </div>
+                            </a>
+                            <a href="#products">
+                                <i data-feather="trending-up" class="h-5 w-5 text-teal-600"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">Mutual Funds</div>
+                                    <div class="text-xs text-slate-500">SIP & Lumpsum Options</div>
+                                </div>
+                            </a>
+                            <a href="#products">
+                                <i data-feather="credit-card" class="h-5 w-5 text-purple-600"></i>
+                                <div>
+                                    <div class="font-semibold text-sm">Credit Cards</div>
+                                    <div class="text-xs text-slate-500">Rewards & Cashback</div>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                    
-                    <!-- Desktop Navigation -->
-                    <div class="hidden md:flex md:items-center md:space-x-6">
-                        <a href="#" class="text-slate-600 hover:text-teal-600 font-medium px-3 py-2 rounded-md transition" onclick="event.preventDefault(); showView('blog-list-view')">Blog</a>
-                        <a href="#" class="text-slate-600 hover:text-teal-600 font-medium px-3 py-2 rounded-md transition" onclick="event.preventDefault(); showView('calculators-view')">Calculators</a>
-                        <a href="#" class="text-slate-600 hover:text-teal-600 font-medium px-3 py-2 rounded-md transition">Products</a>
-                        <a href="#" class="text-slate-600 hover:text-teal-600 font-medium px-3 py-2 rounded-md transition">About Us</a>
+
+                    <a href="#calculators" class="text-slate-700 hover:text-teal-600 font-medium transition">Calculators</a>
+                    <a href="javascript:void(0);" onclick="showBlogPage()" class="text-slate-700 hover:text-teal-600 font-medium transition">Blog</a>
+                    <a href="#contact" class="inline-flex items-center px-5 py-2 border border-transparent text-sm font-semibold rounded-full text-white bg-teal-600 hover:bg-teal-700 shadow-sm transition">
+                        Get Started
+                        <i data-feather="arrow-right" class="ml-2 h-4 w-4"></i>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button class="text-slate-500 hover:text-slate-800" id="mobile-menu-button">
+                        <i data-feather="menu" class="h-6 w-6"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden hidden pb-4">
+                <a href="#home" class="block text-slate-700 hover:text-teal-600 font-medium px-3 py-2 rounded-md transition">Home</a>
+                <a href="#about" class="block text-slate-700 hover:text-teal-600 font-medium px-3 py-2 rounded-md transition">About</a>
+                <a href="#team" class="block text-slate-700 hover:text-teal-600 font-medium px-3 py-2 rounded-md transition">Team</a>
+                <a href="#products" class="block text-slate-700 hover:text-teal-600 font-medium px-3 py-2 rounded-md transition">Products</a>
+                <a href="#calculators" class="block text-slate-700 hover:text-teal-600 font-medium px-3 py-2 rounded-md transition">Calculators</a>
+                <a href="javascript:void(0);" onclick="showBlogPage()" class="block text-slate-700 hover:text-teal-600 font-medium px-3 py-2 rounded-md transition">Blog</a>
+                <a href="#contact" class="block text-teal-600 font-semibold px-3 py-2 rounded-md transition">Get Started</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section id="home" class="gradient-bg text-white py-20 md:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Hero Content -->
+                <div>
+                    <div class="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium mb-6">
+                        <i data-feather="award" class="h-4 w-4 mr-2"></i>
+                        Trusted by Indian Families
                     </div>
-                    
-                    <!-- Subscribe Button -->
-                    <div>
-                        <a href="#subscribe-v-focused" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-teal-600 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 transition">
-                            Subscribe
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight">
+                        Build Your<br>
+                        <span class="text-teal-100">Financial Future</span><br>
+                        With Confidence
+                    </h1>
+                    <p class="text-xl md:text-2xl text-teal-50 mb-8 leading-relaxed">
+                        Expert guidance in Portfolio Management, Insurance, and Loans. We help Indian families grow wealth and secure their dreams.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#contact" class="inline-flex items-center justify-center px-8 py-4 bg-white text-teal-600 font-bold rounded-full hover:bg-teal-50 shadow-xl transition transform hover:scale-105">
+                            Start Your Journey
+                            <i data-feather="arrow-right" class="ml-2 h-5 w-5"></i>
+                        </a>
+                        <a href="#calculators" class="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-white text-white font-bold rounded-full hover:bg-white/10 transition">
+                            Try Calculators
+                            <i data-feather="calculator" class="ml-2 h-5 w-5"></i>
                         </a>
                     </div>
 
-                    <!-- Mobile Menu Button -->
-                    <div class="md:hidden">
-                        <button class="text-slate-500 hover:text-slate-800" id="mobile-menu-button">
-                            <i data-feather="menu"></i>
+                    <!-- Quick Stats -->
+                    <div class="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-white/20">
+                        <div>
+                            <p class="text-3xl font-bold">₹5Cr+</p>
+                            <p class="text-teal-100 text-sm">Assets Under Management</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl font-bold">50+</p>
+                            <p class="text-teal-100 text-sm">Happy Clients</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl font-bold">15+ Years</p>
+                            <p class="text-teal-100 text-sm">Experience</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Image/Illustration -->
+                <div class="relative">
+                    <div class="relative z-10">
+                        <img src="https://placehold.co/600x500/FFFFFF/14B8A6?text=Financial+Growth" alt="Financial Success" class="rounded-2xl shadow-2xl">
+                    </div>
+                    <!-- Decorative elements -->
+                    <div class="absolute -top-6 -right-6 w-32 h-32 bg-teal-400 rounded-full opacity-20 blur-3xl"></div>
+                    <div class="absolute -bottom-6 -left-6 w-40 h-40 bg-teal-300 rounded-full opacity-20 blur-3xl"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== LIVE MARKET TICKERS ===== -->
+    <section class="bg-white py-6 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between overflow-x-auto space-x-8">
+                <div class="flex items-center space-x-2 flex-shrink-0">
+                    <span class="text-sm font-medium text-slate-600">NIFTY 50:</span>
+                    <span class="text-lg font-bold text-slate-900">23,450.80</span>
+                    <span class="text-sm text-green-600 flex items-center">
+                        <i data-feather="trending-up" class="h-4 w-4 mr-1"></i>
+                        +0.52%
+                    </span>
+                </div>
+                <div class="flex items-center space-x-2 flex-shrink-0">
+                    <span class="text-sm font-medium text-slate-600">SENSEX:</span>
+                    <span class="text-lg font-bold text-slate-900">77,120.10</span>
+                    <span class="text-sm text-red-600 flex items-center">
+                        <i data-feather="trending-down" class="h-4 w-4 mr-1"></i>
+                        -0.27%
+                    </span>
+                </div>
+                <div class="flex items-center space-x-2 flex-shrink-0">
+                    <span class="text-sm font-medium text-slate-600">GOLD:</span>
+                    <span class="text-lg font-bold text-slate-900">₹72,850</span>
+                    <span class="text-sm text-green-600 flex items-center">
+                        <i data-feather="trending-up" class="h-4 w-4 mr-1"></i>
+                        +0.43%
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT INVESTALLY ===== -->
+    <section id="about" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-teal-600 font-semibold text-sm uppercase tracking-wider">Who We Are</span>
+                <h2 class="text-4xl md:text-5xl font-black text-slate-900 mt-3 mb-4">
+                    Your Trusted Partner in<br>
+                    <span class="gradient-text">Financial Success</span>
+                </h2>
+                <p class="text-xl text-slate-600 max-w-3xl mx-auto">
+                    Investally is India's leading financial advisory platform, dedicated to helping families and individuals achieve their financial goals through expert guidance and innovative solutions.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Image -->
+                <div class="relative">
+                    <img src="https://placehold.co/600x400/14B8A6/FFFFFF?text=Our+Mission" alt="Investally Mission" class="rounded-2xl shadow-xl">
+                    <div class="absolute -bottom-6 -right-6 bg-teal-600 text-white p-6 rounded-xl shadow-lg">
+                        <p class="text-4xl font-bold">98%</p>
+                        <p class="text-teal-100 text-sm">Client Satisfaction</p>
+                    </div>
+                </div>
+
+                <!-- Content -->
+                <div>
+                    <h3 class="text-3xl font-bold text-slate-900 mb-6">Why Choose Investally?</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-teal-100 rounded-full p-3 mr-4">
+                                <i data-feather="target" class="text-teal-600 h-6 w-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-slate-900 mb-2">Personalized Solutions</h4>
+                                <p class="text-slate-600">Every financial journey is unique. We create customized strategies that align with your goals, risk appetite, and life stage.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-teal-100 rounded-full p-3 mr-4">
+                                <i data-feather="shield" class="text-teal-600 h-6 w-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-slate-900 mb-2">SEBI Registered Experts</h4>
+                                <p class="text-slate-600">Our team of certified financial planners and SEBI-registered advisors brings decades of experience in Indian markets.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-teal-100 rounded-full p-3 mr-4">
+                                <i data-feather="book-open" class="text-teal-600 h-6 w-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-slate-900 mb-2">Education First</h4>
+                                <p class="text-slate-600">We believe in empowering you with knowledge. Our blog and resources help you make informed financial decisions.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-teal-100 rounded-full p-3 mr-4">
+                                <i data-feather="award" class="text-teal-600 h-6 w-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-slate-900 mb-2">Transparent & Trustworthy</h4>
+                                <p class="text-slate-600">No hidden fees, no jargon. We maintain complete transparency in all our dealings and always put your interests first.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PRODUCTS / SERVICES ===== -->
+    <section id="products" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-teal-600 font-semibold text-sm uppercase tracking-wider">Our Services</span>
+                <h2 class="text-4xl md:text-5xl font-black text-slate-900 mt-3 mb-4">
+                    Comprehensive Financial Solutions<br>
+                    <span class="gradient-text">For Every Need</span>
+                </h2>
+                <p class="text-xl text-slate-600 max-w-3xl mx-auto">
+                    From wealth creation to protection, we offer end-to-end financial services tailored for Indian families.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- PMS -->
+                <div class="bg-gradient-to-br from-teal-50 to-teal-100 rounded-2xl p-8 card-hover border-2 border-teal-200">
+                    <div class="bg-teal-600 w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+                        <i data-feather="briefcase" class="text-white h-8 w-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-3">Portfolio Management</h3>
+                    <p class="text-slate-700 mb-6">Professional management of your equity and debt investments with personalized strategies and direct ownership.</p>
+
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center text-slate-700">
+                            <i data-feather="check" class="text-teal-600 h-5 w-5 mr-2"></i>
+                            Customized investment strategies
+                        </li>
+                        <li class="flex items-center text-slate-700">
+                            <i data-feather="check" class="text-teal-600 h-5 w-5 mr-2"></i>
+                            Direct ownership of securities
+                        </li>
+                        <li class="flex items-center text-slate-700">
+                            <i data-feather="check" class="text-teal-600 h-5 w-5 mr-2"></i>
+                            Expert fund managers
+                        </li>
+                    </ul>
+
+                    <div class="flex items-center justify-between pt-6 border-t border-teal-200">
+                        <div>
+                            <p class="text-sm text-slate-600">Min. Investment</p>
+                            <p class="text-xl font-bold text-teal-600">₹50 Lakhs</p>
+                        </div>
+                        <a href="#contact" class="inline-flex items-center px-4 py-2 bg-teal-600 text-white font-semibold rounded-lg hover:bg-teal-700 transition">
+                            Learn More
+                            <i data-feather="arrow-right" class="ml-2 h-4 w-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Insurance -->
+                <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8 card-hover border-2 border-green-200">
+                    <div class="bg-green-600 w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+                        <i data-feather="shield" class="text-white h-8 w-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-3">Insurance Solutions</h3>
+                    <p class="text-slate-700 mb-6">Comprehensive protection plans for life, health, and family security. Compare from 20+ top insurers.</p>
+
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center text-slate-700">
+                            <i data-feather="check" class="text-green-600 h-5 w-5 mr-2"></i>
+                            Term & Health Insurance
+                        </li>
+                        <li class="flex items-center text-slate-700">
+                            <i data-feather="check" class="text-green-600 h-5 w-5 mr-2"></i>
+                            Critical illness coverage
+                        </li>
+                        <li class="flex items-center text-slate-700">
+                            <i data-feather="check" class="text-green-600 h-5 w-5 mr-2"></i>
+                            Child education plans
+                        </li>
+                    </ul>
+
+                    <div class="flex items-center justify-between pt-6 border-t border-green-200">
+                        <div>
+                            <p class="text-sm text-slate-600">Starting From</p>
+                            <p class="text-xl font-bold text-green-600">₹500/month</p>
+                        </div>
+                        <a href="#contact" class="inline-flex items-center px-4 py-2 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition">
+                            Learn More
+                            <i data-feather="arrow-right" class="ml-2 h-4 w-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Loans -->
+                <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 card-hover border-2 border-blue-200">
+                    <div class="bg-blue-600 w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+                        <i data-feather="home" class="text-white h-8 w-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-3">Home & Personal Loans</h3>
+                    <p class="text-slate-700 mb-6">Quick approvals and best interest rates for home purchase, construction, and personal financing needs.</p>
+
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center text-slate-700">
+                            <i data-feather="check" class="text-blue-600 h-5 w-5 mr-2"></i>
+                            Interest from 8.50% p.a.
+                        </li>
+                        <li class="flex items-center text-slate-700">
+                            <i data-feather="check" class="text-blue-600 h-5 w-5 mr-2"></i>
+                            Up to 30 years tenure
+                        </li>
+                        <li class="flex items-center text-slate-700">
+                            <i data-feather="check" class="text-blue-600 h-5 w-5 mr-2"></i>
+                            90% LTV ratio available
+                        </li>
+                    </ul>
+
+                    <div class="flex items-center justify-between pt-6 border-t border-blue-200">
+                        <div>
+                            <p class="text-sm text-slate-600">Approval Time</p>
+                            <p class="text-xl font-bold text-blue-600">48 Hours</p>
+                        </div>
+                        <a href="#contact" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition">
+                            Learn More
+                            <i data-feather="arrow-right" class="ml-2 h-4 w-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Services -->
+            <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="text-center p-6 bg-slate-50 rounded-xl hover:bg-slate-100 transition">
+                    <i data-feather="credit-card" class="text-purple-600 h-8 w-8 mx-auto mb-3"></i>
+                    <h4 class="font-bold text-slate-900">Credit Cards</h4>
+                    <p class="text-sm text-slate-600">Rewards & Cashback</p>
+                </div>
+                <div class="text-center p-6 bg-slate-50 rounded-xl hover:bg-slate-100 transition">
+                    <i data-feather="trending-up" class="text-teal-600 h-8 w-8 mx-auto mb-3"></i>
+                    <h4 class="font-bold text-slate-900">Mutual Funds</h4>
+                    <p class="text-sm text-slate-600">SIP from ₹500/month</p>
+                </div>
+                <div class="text-center p-6 bg-slate-50 rounded-xl hover:bg-slate-100 transition">
+                    <i data-feather="umbrella" class="text-orange-600 h-8 w-8 mx-auto mb-3"></i>
+                    <h4 class="font-bold text-slate-900">Tax Planning</h4>
+                    <p class="text-sm text-slate-600">Save under 80C</p>
+                </div>
+                <div class="text-center p-6 bg-slate-50 rounded-xl hover:bg-slate-100 transition">
+                    <i data-feather="users" class="text-indigo-600 h-8 w-8 mx-auto mb-3"></i>
+                    <h4 class="font-bold text-slate-900">Retirement Plans</h4>
+                    <p class="text-sm text-slate-600">Secure your future</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CALCULATORS ===== -->
+    <section id="calculators" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-teal-600 font-semibold text-sm uppercase tracking-wider">Plan Your Future</span>
+                <h2 class="text-4xl md:text-5xl font-black text-slate-900 mt-3 mb-4">
+                    Financial <span class="gradient-text">Calculators</span>
+                </h2>
+                <p class="text-xl text-slate-600 max-w-3xl mx-auto">
+                    Make informed decisions with our easy-to-use calculators. See exactly how your money can grow.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- SIP Calculator -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 card-hover">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-2xl font-bold text-slate-900">SIP Calculator</h3>
+                        <div class="bg-teal-100 p-3 rounded-xl">
+                            <i data-feather="bar-chart-2" class="text-teal-600 h-6 w-6"></i>
+                        </div>
+                    </div>
+
+                    <form class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-2">Monthly Investment (₹)</label>
+                            <input type="number" placeholder="5,000" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-2">Expected Return (% p.a.)</label>
+                            <input type="number" placeholder="12" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-2">Time Period (Years)</label>
+                            <input type="number" placeholder="10" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500">
+                        </div>
+                        <button type="button" class="w-full px-6 py-3 bg-teal-600 text-white font-bold rounded-lg hover:bg-teal-700 transition">
+                            Calculate
                         </button>
+                    </form>
+
+                    <div class="mt-6 p-4 bg-teal-50 rounded-lg">
+                        <p class="text-sm text-slate-600">Estimated Maturity Value</p>
+                        <p class="text-3xl font-bold text-teal-600">₹--</p>
                     </div>
                 </div>
 
-                <!-- Mobile Menu (hidden by default) -->
-                <div id="mobile-menu" class="md:hidden hidden pb-4">
-                    <a href="#" class="block text-slate-600 hover:text-teal-600 font-medium px-3 py-2 rounded-md transition" onclick="event.preventDefault(); showView('blog-list-view')">Blog</a>
-                    <a href="#" class="block text-slate-600 hover:text-teal-600 font-medium px-3 py-2 rounded-md transition" onclick="event.preventDefault(); showView('calculators-view')">Calculators</a>
-                    <a href="#" class="block text-slate-600 hover:text-teal-600 font-medium px-3 py-2 rounded-md transition">Products</a>
-                    <a href="#" class="block text-slate-600 hover:text-teal-600 font-medium px-3 py-2 rounded-md transition">About Us</a>
-                </div>
-            </nav>
-        </header>
+                <!-- EMI Calculator -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 card-hover">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-2xl font-bold text-slate-900">EMI Calculator</h3>
+                        <div class="bg-blue-100 p-3 rounded-xl">
+                            <i data-feather="home" class="text-blue-600 h-6 w-6"></i>
+                        </div>
+                    </div>
 
-        <!-- ===== MAIN CONTENT AREA ===== -->
-        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+                    <form class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-2">Loan Amount (₹)</label>
+                            <input type="number" placeholder="50,00,000" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-2">Interest Rate (% p.a.)</label>
+                            <input type="number" placeholder="8.5" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-2">Loan Tenure (Years)</label>
+                            <input type="number" placeholder="20" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <button type="button" class="w-full px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition">
+                            Calculate
+                        </button>
+                    </form>
 
-            <!-- ===== NEW: Market Tickers Section ===== -->
-            <section class="mb-8 md:mb-12">
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-                    <!-- Ticker Card 1: NIFTY 50 -->
-                    <div class="bg-white p-4 rounded-lg shadow-md border border-gray-200">
-                        <div class="flex justify-between items-start">
-                            <h3 class="text-lg font-semibold text-slate-800">NIFTY 50</h3>
-                            <!-- Simple SVG line graph -->
-                            <div class="w-24 h-10">
-                                <svg viewBox="0 0 100 40" class="w-full h-full" preserveAspectRatio="none">
-                                    <path d="M 0 30 L 20 25 L 40 28 L 60 20 L 80 15 L 100 10" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round"></path>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="mt-2">
-                            <p class="text-2xl font-bold text-slate-900">23,450.80</p>
-                            <p class="flex items-center text-sm font-medium text-green-600">
-                                <i data-feather="arrow-up" class="w-4 h-4 mr-1"></i>
-                                +120.50 (+0.52%)
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Ticker Card 2: Sensex -->
-                    <div class="bg-white p-4 rounded-lg shadow-md border border-gray-200">
-                        <div class="flex justify-between items-start">
-                            <h3 class="text-lg font-semibold text-slate-800">Sensex</h3>
-                            <!-- Simple SVG line graph -->
-                            <div class="w-24 h-10">
-                                <svg viewBox="0 0 100 40" class="w-full h-full" preserveAspectRatio="none">
-                                    <path d="M 0 10 L 20 15 L 40 12 L 60 20 L 80 25 L 100 30" fill="none" stroke="#ef4444" stroke-width="3" stroke-linecap="round"></path>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="mt-2">
-                            <p class="text-2xl font-bold text-slate-900">77,120.10</p>
-                            <p class="flex items-center text-sm font-medium text-red-600">
-                                <i data-feather="arrow-down" class="w-4 h-4 mr-1"></i>
-                                -210.30 (-0.27%)
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Ticker Card 3: Gold -->
-                    <div class="bg-white p-4 rounded-lg shadow-md border border-gray-200">
-                        <div class="flex justify-between items-start">
-                            <h3 class="text-lg font-semibold text-slate-800">Gold (MCX)</h3>
-                            <!-- Simple SVG line graph -->
-                            <div class="w-24 h-10">
-                                <svg viewBox="0 0 100 40" class="w-full h-full" preserveAspectRatio="none">
-                                    <path d="M 0 25 L 20 28 L 40 20 L 60 22 L 80 15 L 100 18" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round"></path>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="mt-2">
-                            <p class="text-2xl font-bold text-slate-900">₹72,850.00</p>
-                            <p class="flex items-center text-sm font-medium text-green-600">
-                                <i data-feather="arrow-up" class="w-4 h-4 mr-1"></i>
-                                +310.00 (+0.43%)
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Ticker Card 4: Silver -->
-                    <div class="bg-white p-4 rounded-lg shadow-md border border-gray-200">
-                        <div class="flex justify-between items-start">
-                            <h3 class="text-lg font-semibold text-slate-800">Silver (MCX)</h3>
-                            <!-- Simple SVG line graph -->
-                            <div class="w-24 h-10">
-                                <svg viewBox="0 0 100 40" class="w-full h-full" preserveAspectRatio="none">
-                                    <path d="M 0 15 L 20 12 L 40 20 L 60 18 L 80 25 L 100 22" fill="none" stroke="#ef4444" stroke-width="3" stroke-linecap="round"></path>
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="mt-2">
-                            <p class="text-2xl font-bold text-slate-900">₹89,500.00</p>
-                            <p class="flex items-center text-sm font-medium text-red-600">
-                                <i data-feather="arrow-down" class="w-4 h-4 mr-1"></i>
-                                -150.00 (-0.17%)
-                            </p>
-                        </div>
+                    <div class="mt-6 p-4 bg-blue-50 rounded-lg">
+                        <p class="text-sm text-slate-600">Monthly EMI</p>
+                        <p class="text-3xl font-bold text-blue-600">₹--</p>
                     </div>
                 </div>
-            </section>
 
-
-            <!-- ===== VIEW 1: BLOG LIST (Default View) ===== -->
-            <div data-view="blog-list-view">
-                
-                <!-- Main Content Grid (Blog + Sidebar) -->
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                    
-                    <!-- Blog Feed (Main Column) -->
-                    <div class="lg:col-span-2">
-                        <!-- Updated Blog Title -->
-                        <h2 class="text-3xl font-bold text-slate-900 mb-6">The Investally Blog</h2>
-                        
-                        <!-- Filters -->
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="text-sm font-medium text-slate-600 self-center mr-2">Filter by:</span>
-                            <button class="px-4 py-1 text-sm font-medium rounded-full bg-teal-600 text-white">All Topics</button>
-                            <button class="px-4 py-1 text-sm font-medium rounded-full bg-white text-slate-700 border border-slate-300 hover:bg-slate-100 transition">Investing</button>
-                            <button class="px-4 py-1 text-sm font-medium rounded-full bg-white text-slate-700 border border-slate-300 hover:bg-slate-100 transition">Saving</button>
-                            <button class="px-4 py-1 text-sm font-medium rounded-full bg-white text-slate-700 border border-slate-300 hover:bg-slate-100 transition">Debt</button>
-                            <button class="px-4 py-1 text-sm font-medium rounded-full bg-white text-slate-700 border border-slate-300 hover:bg-slate-100 transition">Taxes</button>
-                        </div>
-
-                        <!-- Tabs: Latest / Popular -->
-                        <div class="mb-6 border-b border-slate-200">
-                            <nav class="flex -mb-px space-x-6">
-                                <a href="#" class="py-3 px-1 border-b-2 border-teal-600 text-teal-600 font-semibold">Latest Blogs</a>
-                                <a href="#" class="py-3 px-1 border-b-2 border-transparent text-slate-500 hover:text-slate-700 hover:border-slate-300 font-medium">Popular Blogs</a>
-                            </nav>
-                        </div>
-
-                        <!-- Blog Post Card Grid -->
-                        <div class="space-y-8">
-                            <!-- Blog Post Card 1 -->
-                            <article class="bg-white shadow-md rounded-lg overflow-hidden flex flex-col md:flex-row">
-                                <img src="https://placehold.co/600x400/14B8A6/FFFFFF?text=Finance+Image" alt="Blog post image" class="md:w-1/3 h-48 md:h-auto object-cover">
-                                <div class="p-6 flex flex-col justify-between">
-                                    <div>
-                                        <span class="text-xs font-semibold uppercase text-teal-600">Investing</span>
-                                        <h3 class="mt-2 text-2xl font-bold text-slate-900 hover:text-teal-700 transition">
-                                            <a href="#" onclick="event.preventDefault(); showView('blog-post-view')">The 5 Simple Rules of Successful Investing</a>
-                                        </h3>
-                                        <p class="mt-3 text-slate-600">Learn the foundational rules that separate successful investors from the rest. It's simpler than you think...</p>
-                                    </div>
-                                    <div class="mt-4 flex items-center space-x-3">
-                                        <img src="https://placehold.co/40x40/E2E8F0/334155?text=Author" alt="Author" class="w-10 h-10 rounded-full">
-                                        <div>
-                                            <p class="font-medium text-slate-800">Jane Doe</p>
-                                            <p class="text-sm text-slate-500">Oct 28, 2025 · 6 min read</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-
-                            <!-- Blog Post Card 2 -->
-                            <article class="bg-white shadow-md rounded-lg overflow-hidden flex flex-col md:flex-row">
-                                <img src="https://placehold.co/600x400/10B981/FFFFFF?text=Saving+Tips" alt="Blog post image" class="md:w-1/3 h-48 md:h-auto object-cover">
-                                <div class="p-6 flex flex-col justify-between">
-                                    <div>
-                                        <span class="text-xs font-semibold uppercase text-green-600">Saving</span>
-                                        <h3 class="mt-2 text-2xl font-bold text-slate-900 hover:text-teal-700 transition">
-                                            <a href="#" onclick="event.preventDefault(); showView('blog-post-view')">How to Build an Emergency Fund in 6 Months</a>
-                                        </h3>
-                                        <p class="mt-3 text-slate-600">An emergency fund is your financial seatbelt. Here's a step-by-step plan to build yours...</p>
-                                    </div>
-                                    <div class="mt-4 flex items-center space-x-3">
-                                        <img src="https://placehold.co/40x40/E2E8F0/334155?text=Author" alt="Author" class="w-10 h-10 rounded-full">
-                                        <div>
-                                            <p class="font-medium text-slate-800">John Smith</p>
-                                            <p class="text-sm text-slate-500">Oct 25, 2025 · 8 min read</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
+                <!-- Insurance Calculator -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 card-hover">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-2xl font-bold text-slate-900">Insurance Needs</h3>
+                        <div class="bg-green-100 p-3 rounded-xl">
+                            <i data-feather="shield" class="text-green-600 h-6 w-6"></i>
                         </div>
                     </div>
 
-                    <!-- Sidebar (Aside) -->
-                    <aside class="lg:col-span-1 space-y-8">
-                        
-                        <!-- ===== MOVED UP: Mini Calculators ===== -->
-                        <div class="bg-white p-6 rounded-lg shadow-md">
-                            <h3 class="text-xl font-bold text-slate-900 mb-4">Quick Calculators</h3>
-                            <div class="space-y-6">
-                                <!-- Calculator 1: Simple Interest -->
-                                <div>
-                                    <label for="principal-v6" class="block text-sm font-medium text-slate-700">Simple Interest</label>
-                                    <input type="number" id="principal-v6" placeholder="Principal (₹)" class="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-teal-500 focus:ring-teal-500">
-                                    <input type="number" id="rate-v6" placeholder="Rate (%)" class="mt-2 block w-full rounded-md border-slate-300 shadow-sm focus:border-teal-500 focus:ring-teal-500">
-                                    <input type="number" id="time-v6" placeholder="Time (Years)" class="mt-2 block w-full rounded-md border-slate-300 shadow-sm focus:border-teal-500 focus:ring-teal-500">
-                                    <button class="mt-3 w-full px-4 py-2 rounded-md font-medium bg-teal-100 text-teal-700 hover:bg-teal-200 transition">Calculate</button>
-                                </div>
-                                <!-- Calculator 2: EMI -->
-                                <div>
-                                    <label for="loan-v6" class="block text-sm font-medium text-slate-700">Loan EMI</label>
-                                    <input type="number" id="loan-v6" placeholder="Loan Amount (₹)" class="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-teal-500 focus:ring-teal-500">
-                                    <input type="number" id="loan-rate-v6" placeholder="Rate (%)" class="mt-2 block w-full rounded-md border-slate-300 shadow-sm focus:border-teal-500 focus:ring-teal-500">
-                                    <input type="number" id="loan-term-v6" placeholder="Term (Months)" class="mt-2 block w-full rounded-md border-slate-300 shadow-sm focus:border-teal-500 focus:ring-teal-500">
-                                    <button class="mt-3 w-full px-4 py-2 rounded-md font-medium bg-teal-100 text-teal-700 hover:bg-teal-200 transition">Calculate</button>
-                                </div>
-                            </div>
-                            <!-- Explore More Link -->
-                            <a href="#" class="inline-flex items-center mt-6 text-teal-600 hover:text-teal-800 font-medium" onclick="event.preventDefault(); showView('calculators-view')">
-                                Explore More Calculators
-                                <i data-feather="arrow-right" class="ml-2 h-4 w-4"></i>
-                            </a>
+                    <form class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-2">Your Age</label>
+                            <input type="number" placeholder="30" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500">
                         </div>
-                        
-                        <!-- Email Subscription -->
-                        <section id="subscribe-v-focused" class="bg-teal-600 rounded-lg shadow-lg p-6 text-center text-white">
-                            <h1 class="text-xl md:text-2xl font-bold mb-2">Get Smarter About Your Money.</h1>
-                            <p class="text-sm text-teal-100 mb-4">Subscribe for free financial tips and analysis.</p>
-                            <form class="flex flex-col gap-2">
-                                <input type="email" placeholder="Enter your email" class="w-full px-4 py-2 rounded-md text-slate-900 focus:ring-2 focus:ring-white" required>
-                                <button type="submit" class="w-full px-4 py-2 rounded-md font-semibold bg-white text-teal-600 hover:bg-teal-50 shadow-md transition">Sign Up</button>
-                            </form>
-                        </section>
-
-                        <!-- Product Buttons -->
-                        <section>
-                            <h2 class="text-xl font-bold text-slate-900 mb-4 text-left">Our Financial Products</h2>
-                            <div class="grid grid-cols-2 gap-4">
-                                <a href="#" class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition flex flex-col items-center text-center">
-                                    <i data-feather="briefcase" class="text-teal-600 h-6 w-6 mb-2"></i>
-                                    <span class="font-medium text-sm text-slate-700">PMS Services</span>
-                                </a>
-                                <a href="#" class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition flex flex-col items-center text-center">
-                                    <i data-feather="shield" class="text-green-600 h-6 w-6 mb-2"></i>
-                                    <span class="font-medium text-sm text-slate-700">Insurance</span>
-                                </a>
-                                <a href="#" class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition flex flex-col items-center text-center">
-                                    <i data-feather="home" class="text-red-600 h-6 w-6 mb-2"></i>
-                                    <span class="font-medium text-sm text-slate-700">Home Loans</span>
-                                </a>
-                                <a href="#" class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition flex flex-col items-center text-center">
-                                    <i data-feather="credit-card" class="text-purple-600 h-6 w-6 mb-2"></i>
-                                    <span class="font-medium text-sm text-slate-700">Credit Cards</span>
-                                </a>
-                            </div>
-                        </section>
-
-                        <!-- Social Media Links -->
-                        <div class="bg-white p-6 rounded-lg shadow-md">
-                            <h3 class="text-xl font-bold text-slate-900 mb-4">Follow Us</h3>
-                            <div class="flex justify-around">
-                                <a href="#" class="text-slate-500 hover:text-teal-600 transition"><i data-feather="twitter" class="w-8 h-8"></i></a>
-                                <a href="#" class="text-slate-500 hover:text-teal-800 transition"><i data-feather="linkedin" class="w-8 h-8"></i></a>
-                                <a href="#" class="text-slate-500 hover:text-pink-600 transition"><i data-feather="instagram" class="w-8 h-8"></i></a>
-                                <a href="#" class="text-slate-500 hover:text-teal-700 transition"><i data-feather="facebook" class="w-8 h-8"></i></a>
-                            </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-2">Annual Income (₹)</label>
+                            <input type="number" placeholder="10,00,000" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500">
                         </div>
-                    </aside>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-2">Dependents</label>
+                            <input type="number" placeholder="3" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500">
+                        </div>
+                        <button type="button" class="w-full px-6 py-3 bg-green-600 text-white font-bold rounded-lg hover:bg-green-700 transition">
+                            Calculate
+                        </button>
+                    </form>
+
+                    <div class="mt-6 p-4 bg-green-50 rounded-lg">
+                        <p class="text-sm text-slate-600">Recommended Coverage</p>
+                        <p class="text-3xl font-bold text-green-600">₹--</p>
+                    </div>
                 </div>
             </div>
 
-
-            <!-- ===== VIEW 2: BLOG POST (Hidden by default) ===== -->
-            <div data-view="blog-post-view" class="hidden">
-                <!-- Main Content Grid (Article + Sidebar) -->
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                    
-                    <!-- Blog Article (Main Column) -->
-                    <article class="lg:col-span-2 bg-white shadow-lg rounded-lg overflow-hidden">
-                        <div class="p-6 md:p-10">
-                            <!-- Back Link -->
-                            <a href="#" class="inline-flex items-center text-teal-600 hover:text-teal-800 font-medium mb-4" onclick="event.preventDefault(); showView('blog-list-view')">
-                                <i data-feather="arrow-left" class="mr-2 h-4 w-4"></i>
-                                Back to all posts
-                            </a>
-                            <span class="block text-sm font-semibold uppercase text-teal-600 mb-2">Investing</span>
-                            <h1 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">The 5 Simple Rules of Successful Investing</h1>
-                            <!-- Author Info -->
-                            <div class="flex items-center space-x-3">
-                                <img src="https://placehold.co/40x40/E2E8F0/334155?text=Author" alt="Author" class="w-10 h-10 rounded-full">
-                                <div>
-                                    <p class="font-medium text-slate-800">Jane Doe</p>
-                                    <p class="text-sm text-slate-500">Oct 28, 2025 · 6 min read</p>
-                                </div>
-                            </div>
-                        </div>
-                        <img src="https://placehold.co/1200x600/14B8A6/FFFFFF?text=Successful+Investing" alt="Blog post image" class="w-full h-auto object-cover">
-                        <div class="prose prose-lg max-w-none p-6 md:p-10">
-                            <!-- Sample Article Content -->
-                            <p>Investing can seem complex, but at its core, it relies on a few simple, powerful principles. Mastering these rules can be the difference between achieving your financial goals and falling short.</p>
-                            <h3>Rule 1: Start Early and Be Consistent</h3>
-                            <p>The most powerful force in investing is compound interest. The earlier you start, the more time your money has to grow. Even small, consistent contributions can grow into a substantial sum over time. Don't wait for the "perfect" time; the best time to start was yesterday. The second best time is today.</p>
-                            <h3>Rule 2: Understand and Manage Risk</h3>
-                            <p>All investing involves risk, but not all risks are equal. Diversification—spreading your investments across different asset classes (stocks, bonds, real estate) and sectors—is the most effective way to manage risk. It ensures that a poor performance in one area doesn't wipe out your entire portfolio.</p>
-                            <ul>
-                                <li><strong>Don't put all your eggs in one basket.</strong></li>
-                                <li><strong>Assess your own risk tolerance.</strong> Are you comfortable with volatility, or do you prefer a smoother ride?</li>
-                                <li><strong>Rebalance your portfolio</strong> periodically to stay aligned with your goals.</li>
-                            </ul>
-                            <h3>Rule 3: Keep Costs Low</h3>
-                            <p>Fees and expenses are silent portfolio killers. A 1% fee might not sound like much, but over 30 years, it can consume a significant portion of your returns. Opt for low-cost index funds or ETFs over actively managed funds with high expense ratios.</p>
-                            <blockquote>"The grim irony of investing is that we investors as a group not only don't get what we pay for, we get precisely what we don't pay for." - John C. Bogle</blockquote>
-                            <h3>Rule 4: Invest for the Long Term</h3>
-                            <p>The stock market is volatile in the short term but has historically trended upwards over the long term. Avoid the temptation to time the market—getting in and out based on news or fear. "Time in the market" is far more important than "timing the market."</p>
-                            <h3>Rule 5: Control Your Emotions</h3>
-                            <p>The biggest obstacle to successful investing is often our own psychology. Fear and greed drive poor decisions. When markets are crashing (fear), people sell low. When markets are soaring (greed), people buy high. Create a solid financial plan and stick to it. Automate your investments and avoid checking your portfolio every day.</p>
-                        </div>
-                        <div class="p-6 md:p-10 bg-slate-50 border-t border-slate-200">
-                            <h3 class="text-2xl font-bold text-slate-900 mb-3">Ready to Start Your Financial Journey?</h3>
-                            <p class="text-slate-600 mb-6">Reading is the first step. The next is taking action. Let our experts at Investally help you build a personalized financial plan.</p>
-                            <a href="#" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-teal-600 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 transition">
-                                Book a Free Consultation
-                            </a>
-                        </div>
-                        <div class="p-6 md:p-10 border-t border-slate-200">
-                            <h3 class="text-2xl font-bold text-slate-900 mb-6">Leave a Comment</h3>
-                            <!-- Comments Form -->
-                            <form class="space-y-4">
-                                <div>
-                                    <label for="comment" class="sr-only">Comment</label>
-                                    <textarea id="comment" rows="4" class="w-full rounded-md border-slate-300 shadow-sm focus:border-teal-500 focus:ring-teal-500" placeholder="Write your comment..."></textarea>
-                                </div>
-                                <div class="flex gap-4">
-                                    <input type="text" placeholder="Your Name" class="flex-1 rounded-md border-slate-300 shadow-sm focus:border-teal-500 focus:ring-teal-500">
-                                    <input type="email" placeholder="Your Email" class="flex-1 rounded-md border-slate-300 shadow-sm focus:border-teal-500 focus:ring-teal-500">
-                                </div>
-                                <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-teal-600 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 transition">
-                                    Post Comment
-                                </button>
-                            </form>
-                        </div>
-                    </article>
-
-                    <!-- Persistent Sidebar -->
-                    <aside class="lg:col-span-1 space-y-8">
-                        
-                        <!-- ===== MOVED UP: Mini Calculators ===== -->
-                        <div class="bg-white p-6 rounded-lg shadow-md">
-                            <h3 class="text-xl font-bold text-slate-900 mb-4">Quick Calculators</h3>
-                            <div class="space-y-6">
-                                <div>
-                                    <label for="principal-v6-2" class="block text-sm font-medium text-slate-700">Simple Interest</label>
-                                    <input type="number" id="principal-v6-2" placeholder="Principal (₹)" class="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-teal-500 focus:ring-teal-500">
-                                    <input type="number" id="rate-v6-2" placeholder="Rate (%)" class="mt-2 block w-full rounded-md border-slate-300 shadow-sm focus:border-teal-500 focus:ring-teal-500">
-                                    <input type="number" id="time-v6-2" placeholder="Time (Years)" class="mt-2 block w-full rounded-md border-slate-300 shadow-sm focus:border-teal-500 focus:ring-teal-500">
-                                    <button class="mt-3 w-full px-4 py-2 rounded-md font-medium bg-teal-100 text-teal-700 hover:bg-teal-200 transition">Calculate</button>
-                                </div>
-                            </div>
-                            <!-- Explore More Link -->
-                            <a href="#" class="inline-flex items-center mt-6 text-teal-600 hover:text-teal-800 font-medium" onclick="event.preventDefault(); showView('calculators-view')">
-                                Explore More Calculators
-                                <i data-feather="arrow-right" class="ml-2 h-4 w-4"></i>
-                            </a>
-                        </div>
-                        
-                        <!-- Email Subscription -->
-                        <section class="bg-teal-600 rounded-lg shadow-lg p-6 text-center text-white">
-                            <h1 class="text-xl md:text-2xl font-bold mb-2">Get Smarter About Your Money.</h1>
-                            <p class="text-sm text-teal-100 mb-4">Subscribe for free financial tips and analysis.</p>
-                            <form class="flex flex-col gap-2">
-                                <input type="email" placeholder="Enter your email" class="w-full px-4 py-2 rounded-md text-slate-900 focus:ring-2 focus:ring-white" required>
-                                <button type="submit" class="w-full px-4 py-2 rounded-md font-semibold bg-white text-teal-600 hover:bg-teal-50 shadow-md transition">Sign Up</button>
-                            </form>
-                        </section>
-
-                        <!-- Product Buttons -->
-                        <section>
-                            <h2 class="text-xl font-bold text-slate-900 mb-4 text-left">Our Financial Products</h2>
-                            <div class="grid grid-cols-2 gap-4">
-                                <!-- ... (product links) ... -->
-                                <a href="#" class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition flex flex-col items-center text-center">
-                                    <i data-feather="briefcase" class="text-teal-600 h-6 w-6 mb-2"></i>
-                                    <span class="font-medium text-sm text-slate-700">PMS Services</span>
-                                </a>
-                                <a href="#" class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition flex flex-col items-center text-center">
-                                    <i data-feather="shield" class="text-green-600 h-6 w-6 mb-2"></i>
-                                    <span class="font-medium text-sm text-slate-700">Insurance</span>
-                                </a>
-                                <a href="#" class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition flex flex-col items-center text-center">
-                                    <i data-feather="home" class="text-red-600 h-6 w-6 mb-2"></i>
-                                    <span class="font-medium text-sm text-slate-700">Home Loans</span>
-                                </a>
-                                <a href="#" class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition flex flex-col items-center text-center">
-                                    <i data-feather="credit-card" class="text-purple-600 h-6 w-6 mb-2"></i>
-                                    <span class="font-medium text-sm text-slate-700">Credit Cards</span>
-                                </a>
-                            </div>
-                        </section>
-                    </aside>
-                </div>
-            </div>
-
-            <!-- ===== VIEW 3: CALCULATORS PAGE (Hidden by default) ===== -->
-            <div data-view="calculators-view" class="hidden">
-                <!-- Back Link -->
-                <a href="#" class="inline-flex items-center text-teal-600 hover:text-teal-800 font-medium mb-4" onclick="event.preventDefault(); showView('blog-list-view')">
-                    <i data-feather="arrow-left" class="mr-2 h-4 w-4"></i>
-                    Back to blog
+            <!-- More Calculators Link -->
+            <div class="text-center mt-12">
+                <a href="#contact" class="inline-flex items-center text-teal-600 hover:text-teal-700 font-semibold text-lg">
+                    View All Calculators
+                    <i data-feather="arrow-right" class="ml-2 h-5 w-5"></i>
                 </a>
-                
-                <h1 class="text-3xl md:text-4xl font-bold text-slate-900 mb-8">Financial Calculators</h1>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    
-                    <!-- SIP Calculator -->
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-bold text-slate-900 mb-4">SIP Calculator</h3>
-                        <p class="text-slate-600 mb-4">Calculate the future value of your SIP investments.</p>
-                        <!-- ... (calculator form) ... -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TEAM & PHILOSOPHY SECTION ===== -->
+    <section id="team" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <span class="text-teal-600 font-semibold text-sm uppercase tracking-wider">Meet Our Team</span>
+                <h2 class="text-4xl md:text-5xl font-black text-slate-900 mt-3 mb-4">
+                    Led by <span class="gradient-text">Expert Professionals</span>
+                </h2>
+                <p class="text-xl text-slate-600 max-w-3xl mx-auto">
+                    Our SEBI-registered advisors bring decades of expertise in Indian financial markets to help you achieve your goals.
+                </p>
+            </div>
+
+            <!-- Team Members -->
+            <div class="max-w-6xl mx-auto mb-20">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Team Member 1 -->
+                    <div class="bg-slate-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition p-8">
+                        <div class="flex flex-col items-center text-center">
+                            <!-- Square Image -->
+                            <div class="relative w-48 h-48 mb-4">
+                                <img src="https://placehold.co/400x400/14B8A6/FFFFFF?text=Adarsh+Katta" alt="Adarsh Katta" class="w-full h-full object-cover rounded-xl shadow-md">
+                            </div>
+
+                            <!-- Name and Title -->
+                            <h3 class="text-2xl font-black text-slate-900 mb-1">Adarsh Katta</h3>
+                            <p class="text-teal-600 font-semibold mb-3">Chief Investment Officer & Founder</p>
+
+                            <!-- Education Badges -->
+                            <div class="flex flex-wrap gap-2 justify-center mb-4">
+                                <span class="px-3 py-1 bg-teal-100 text-teal-700 text-xs font-semibold rounded-full">MBA Finance</span>
+                                <span class="px-3 py-1 bg-teal-100 text-teal-700 text-xs font-semibold rounded-full">CFA Charterholder</span>
+                            </div>
+
+                            <!-- Social Links -->
+                            <div class="flex space-x-3 mb-6">
+                                <a href="#" class="bg-teal-100 p-2 rounded-lg hover:bg-teal-200 transition">
+                                    <i data-feather="linkedin" class="h-5 w-5 text-teal-600"></i>
+                                </a>
+                                <a href="#" class="bg-teal-100 p-2 rounded-lg hover:bg-teal-200 transition">
+                                    <i data-feather="mail" class="h-5 w-5 text-teal-600"></i>
+                                </a>
+                            </div>
+
+                            <!-- Description -->
+                            <p class="text-slate-600 text-sm mb-6 leading-relaxed text-left">
+                                With over 18 years of experience in portfolio management and wealth advisory, Adarsh has successfully managed ₹2000+ Cr in client assets. His expertise spans across equity research, portfolio construction, and risk management.
+                            </p>
+
+                            <!-- Credentials -->
+                            <div class="w-full space-y-3">
+                                <div class="bg-white rounded-lg p-3 text-left">
+                                    <div class="flex items-center mb-1">
+                                        <i data-feather="award" class="h-4 w-4 text-teal-600 mr-2"></i>
+                                        <p class="text-sm font-semibold text-slate-900">SEBI RIA</p>
+                                    </div>
+                                    <p class="text-xs text-slate-500 ml-6">Registration: INA000012345</p>
+                                </div>
+
+                                <div class="bg-white rounded-lg p-3 text-left">
+                                    <div class="flex items-center mb-1">
+                                        <i data-feather="shield" class="h-4 w-4 text-teal-600 mr-2"></i>
+                                        <p class="text-sm font-semibold text-slate-900">SEBI Portfolio Manager</p>
+                                    </div>
+                                    <p class="text-xs text-slate-500 ml-6">Registration: INP000004567</p>
+                                </div>
+
+                                <div class="bg-white rounded-lg p-3 text-left">
+                                    <div class="flex items-center mb-1">
+                                        <i data-feather="briefcase" class="h-4 w-4 text-teal-600 mr-2"></i>
+                                        <p class="text-sm font-semibold text-slate-900">NISM Certified</p>
+                                    </div>
+                                    <p class="text-xs text-slate-500 ml-6">Series XV & XA</p>
+                                </div>
+
+                                <div class="bg-white rounded-lg p-3 text-left">
+                                    <div class="flex items-center mb-1">
+                                        <i data-feather="trending-up" class="h-4 w-4 text-teal-600 mr-2"></i>
+                                        <p class="text-sm font-semibold text-slate-900">Track Record</p>
+                                    </div>
+                                    <p class="text-xs text-slate-500 ml-6">15%+ CAGR | 5000+ clients</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <!-- Loan EMI Calculator -->
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-bold text-slate-900 mb-4">Loan EMI Calculator</h3>
-                        <p class="text-slate-600 mb-4">Find out your Equated Monthly Installment (EMI).</p>
-                    </div>
-                    <!-- Retirement Calculator -->
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-bold text-slate-900 mb-4">Retirement Calculator</h3>
-                        <p class="text-slate-600 mb-4">Plan your corpus for a comfortable retirement.</p>
-                    </div>
-                    <!-- Simple Interest -->
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-bold text-slate-900 mb-4">Simple Interest</h3>
-                        <p class="text-slate-600 mb-4">Calculate simple interest on your savings or loans.</p>
-                    </div>
-                    <!-- Compound Interest -->
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-bold text-slate-900 mb-4">Compound Interest</h3>
-                        <p class="text-slate-600 mb-4">See the power of compounding on your investments.</p>
+
+                    <!-- Team Member 2 -->
+                    <div class="bg-slate-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition p-8">
+                        <div class="flex flex-col items-center text-center">
+                            <!-- Square Image -->
+                            <div class="relative w-48 h-48 mb-4">
+                                <img src="https://placehold.co/400x400/10B981/FFFFFF?text=Minakshi+Chitlangia" alt="Minakshi Chitlangia" class="w-full h-full object-cover rounded-xl shadow-md">
+                            </div>
+
+                            <!-- Name and Title -->
+                            <h3 class="text-2xl font-black text-slate-900 mb-1">Minakshi Chitlangia</h3>
+                            <p class="text-green-600 font-semibold mb-3">Head of Wealth Management & Founder</p>
+
+                            <!-- Education Badges -->
+                            <div class="flex flex-wrap gap-2 justify-center mb-4">
+                                <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded-full">CFP</span>
+                                <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-semibold rounded-full">CA</span>
+                            </div>
+
+                            <!-- Social Links -->
+                            <div class="flex space-x-3 mb-6">
+                                <a href="#" class="bg-green-100 p-2 rounded-lg hover:bg-green-200 transition">
+                                    <i data-feather="linkedin" class="h-5 w-5 text-green-600"></i>
+                                </a>
+                                <a href="#" class="bg-green-100 p-2 rounded-lg hover:bg-green-200 transition">
+                                    <i data-feather="mail" class="h-5 w-5 text-green-600"></i>
+                                </a>
+                            </div>
+
+                            <!-- Description -->
+                            <p class="text-slate-600 text-sm mb-6 leading-relaxed text-left">
+                                Minakshi brings 15+ years of experience in financial planning, insurance advisory, and tax optimization. She specializes in comprehensive wealth management solutions for HNI families and has helped over 3000 clients achieve financial security.
+                            </p>
+
+                            <!-- Credentials -->
+                            <div class="w-full space-y-3">
+                                <div class="bg-white rounded-lg p-3 text-left">
+                                    <div class="flex items-center mb-1">
+                                        <i data-feather="award" class="h-4 w-4 text-green-600 mr-2"></i>
+                                        <p class="text-sm font-semibold text-slate-900">SEBI RIA</p>
+                                    </div>
+                                    <p class="text-xs text-slate-500 ml-6">Registration: INA000067890</p>
+                                </div>
+
+                                <div class="bg-white rounded-lg p-3 text-left">
+                                    <div class="flex items-center mb-1">
+                                        <i data-feather="shield" class="h-4 w-4 text-green-600 mr-2"></i>
+                                        <p class="text-sm font-semibold text-slate-900">IRDAI Licensed</p>
+                                    </div>
+                                    <p class="text-xs text-slate-500 ml-6">DB 789456/2010</p>
+                                </div>
+
+                                <div class="bg-white rounded-lg p-3 text-left">
+                                    <div class="flex items-center mb-1">
+                                        <i data-feather="briefcase" class="h-4 w-4 text-green-600 mr-2"></i>
+                                        <p class="text-sm font-semibold text-slate-900">CFP® Professional</p>
+                                    </div>
+                                    <p class="text-xs text-slate-500 ml-6">FPSB India Member</p>
+                                </div>
+
+                                <div class="bg-white rounded-lg p-3 text-left">
+                                    <div class="flex items-center mb-1">
+                                        <i data-feather="users" class="h-4 w-4 text-green-600 mr-2"></i>
+                                        <p class="text-sm font-semibold text-slate-900">Specialization</p>
+                                    </div>
+                                    <p class="text-xs text-slate-500 ml-6">Estate | Tax | Insurance</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </main>
 
-        <!-- ===== NEW: FOOTER ===== -->
-        <footer class="bg-slate-800 text-slate-300 mt-16">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                    
-                    <!-- Col 1: Brand & Contact -->
-                    <div class="md:col-span-2">
-                        <div class="flex items-center">
-                            <i data-feather="bar-chart-2" class="text-teal-500 h-7 w-7"></i>
-                            <span class="ml-2 text-2xl font-bold text-white">Investally</span>
-                        </div>
-                        <p class="mt-4 text-sm text-slate-400 max-w-md">Financial planning and insights to help you grow your wealth. We provide tools, articles, and expert advice.</p>
-                        <div class="mt-6 space-y-3">
-                            <a href="mailto:Support@investally.co.in" class="flex items-center text-slate-300 hover:text-white transition">
-                                <i data-feather="mail" class="w-5 h-5 mr-3"></i>
-                                <span>Support@investally.co.in</span>
-                            </a>
-                            <a href="tel:+919166779632" class="flex items-center text-slate-300 hover:text-white transition">
-                                <i data-feather="phone" class="w-5 h-5 mr-3"></i>
-                                <span>+91 91667 79632</span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Col 2: Quick Links -->
-                    <div>
-                        <h3 class="text-sm font-semibold uppercase text-slate-400 tracking-wider">Quick Links</h3>
-                        <ul class="mt-4 space-y-2">
-                            <li><a href="#" class="hover:text-white transition" onclick="event.preventDefault(); showView('blog-list-view')">Blog</a></li>
-                            <li><a href="#" class="hover:text-white transition" onclick="event.preventDefault(); showView('calculators-view')">Calculators</a></li>
-                            <li><a href="#" class="hover:text-white transition">Products</a></li>
-                            <li><a href="#" class="hover:text-white transition">About Us</a></li>
-                        </ul>
-                    </div>
-
-                    <!-- Col 3: Legal -->
-                    <div>
-                        <h3 class="text-sm font-semibold uppercase text-slate-400 tracking-wider">Legal</h3>
-                        <ul class="mt-4 space-y-2">
-                            <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
-                            <li><a href="#" class="hover:text-white transition">Terms of Service</a></li>
-                            <li><a href="#" class="hover:text-white transition">Disclaimer</a></li>
-                        </ul>
-                    </div>
-
+            <!-- Company Philosophy -->
+            <div class="mt-20">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-4">
+                        Our <span class="gradient-text">Investment Philosophy</span>
+                    </h2>
+                    <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+                        Four core principles that guide every decision we make for your financial success.
+                    </p>
                 </div>
 
-                <!-- Footer Bottom -->
-                <div class="mt-12 pt-8 border-t border-slate-700 flex flex-col sm:flex-row justify-between items-center">
-                    <p class="text-sm text-slate-400">&copy; 2025 Investally. All rights reserved.</p>
-                    <div class="flex space-x-6 mt-4 sm:mt-0">
-                        <a href="#" class="text-slate-400 hover:text-white transition"><i data-feather="twitter"></i></a>
-                        <a href="#" class="text-slate-400 hover:text-white transition"><i data-feather="linkedin"></i></a>
-                        <a href="#" class="text-slate-400 hover:text-white transition"><i data-feather="instagram"></i></a>
-                        <a href="#" class="text-slate-400 hover:text-white transition"><i data-feather="facebook"></i></a>
+                <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Philosophy 1 -->
+                    <div class="bg-gradient-to-br from-teal-50 to-teal-100 rounded-2xl p-10 hover:shadow-xl transition">
+                        <div class="bg-teal-600 w-20 h-20 rounded-full flex items-center justify-center mb-6">
+                            <i data-feather="target" class="text-white h-10 w-10"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-4">Client-First Approach</h3>
+                        <p class="text-slate-700 leading-relaxed">
+                            Your goals, risk appetite, and financial well-being are at the center of everything we do. We act as fiduciaries, always putting your interests first.
+                        </p>
+                    </div>
+
+                    <!-- Philosophy 2 -->
+                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-10 hover:shadow-xl transition">
+                        <div class="bg-blue-600 w-20 h-20 rounded-full flex items-center justify-center mb-6">
+                            <i data-feather="compass" class="text-white h-10 w-10"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-4">Long-Term Value</h3>
+                        <p class="text-slate-700 leading-relaxed">
+                            We focus on sustainable wealth creation through disciplined, research-backed strategies rather than short-term market speculation.
+                        </p>
+                    </div>
+
+                    <!-- Philosophy 3 -->
+                    <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-10 hover:shadow-xl transition">
+                        <div class="bg-green-600 w-20 h-20 rounded-full flex items-center justify-center mb-6">
+                            <i data-feather="eye" class="text-white h-10 w-10"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-4">Complete Transparency</h3>
+                        <p class="text-slate-700 leading-relaxed">
+                            No hidden fees, no jargon, no surprises. You'll always know exactly what you're invested in and why, with full visibility into costs and performance.
+                        </p>
+                    </div>
+
+                    <!-- Philosophy 4 -->
+                    <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-10 hover:shadow-xl transition">
+                        <div class="bg-purple-600 w-20 h-20 rounded-full flex items-center justify-center mb-6">
+                            <i data-feather="book-open" class="text-white h-10 w-10"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-4">Continuous Education</h3>
+                        <p class="text-slate-700 leading-relaxed">
+                            We empower you with knowledge through regular insights, market updates, and educational content to help you make informed decisions.
+                        </p>
                     </div>
                 </div>
             </div>
-        </footer>
+        </div>
+    </section>
+
+    <!-- ===== EDUCATIONAL BLOG / LEARN SECTION ===== -->
+    <section id="blog" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-teal-600 font-semibold text-sm uppercase tracking-wider">Learn & Grow</span>
+                <h2 class="text-4xl md:text-5xl font-black text-slate-900 mt-3 mb-4">
+                    Financial <span class="gradient-text">Knowledge Center</span>
+                </h2>
+                <p class="text-xl text-slate-600 max-w-3xl mx-auto">
+                    Empowering you with insights, tips, and strategies to make smarter financial decisions.
+                </p>
+            </div>
+
+            <!-- Categories -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12">
+                <button class="px-6 py-2 bg-teal-600 text-white font-semibold rounded-full hover:bg-teal-700 transition">All Topics</button>
+                <button class="px-6 py-2 bg-white text-slate-700 font-medium rounded-full border-2 border-slate-200 hover:border-teal-600 hover:text-teal-600 transition">Investing</button>
+                <button class="px-6 py-2 bg-white text-slate-700 font-medium rounded-full border-2 border-slate-200 hover:border-teal-600 hover:text-teal-600 transition">Insurance</button>
+                <button class="px-6 py-2 bg-white text-slate-700 font-medium rounded-full border-2 border-slate-200 hover:border-teal-600 hover:text-teal-600 transition">Loans</button>
+                <button class="px-6 py-2 bg-white text-slate-700 font-medium rounded-full border-2 border-slate-200 hover:border-teal-600 hover:text-teal-600 transition">Tax Planning</button>
+                <button class="px-6 py-2 bg-white text-slate-700 font-medium rounded-full border-2 border-slate-200 hover:border-teal-600 hover:text-teal-600 transition">Retirement</button>
+            </div>
+
+            <!-- Featured Article -->
+            <div class="mb-12 bg-gradient-to-br from-teal-500 to-teal-600 rounded-2xl overflow-hidden shadow-xl">
+                <div class="grid grid-cols-1 lg:grid-cols-2">
+                    <div class="p-8 md:p-12 text-white">
+                        <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium mb-4">Featured</span>
+                        <h3 class="text-3xl md:text-4xl font-black mb-4">Complete Guide to Portfolio Management Services in India</h3>
+                        <p class="text-teal-50 mb-6 text-lg">Discover how PMS can help you build wealth through professionally managed, personalized investment strategies. Learn about benefits, costs, and how to get started.</p>
+                        <div class="flex items-center mb-6">
+                            <img src="https://placehold.co/48x48/E2E8F0/334155?text=Author" class="w-12 h-12 rounded-full mr-3">
+                            <div>
+                                <p class="font-semibold">Rajesh Kumar</p>
+                                <p class="text-teal-100 text-sm">Chief Investment Officer</p>
+                            </div>
+                        </div>
+                        <a href="#" class="inline-flex items-center px-6 py-3 bg-white text-teal-600 font-bold rounded-lg hover:bg-teal-50 transition">
+                            Read Full Article
+                            <i data-feather="arrow-right" class="ml-2 h-5 w-5"></i>
+                        </a>
+                    </div>
+                    <div class="hidden lg:block">
+                        <img src="https://placehold.co/600x500/14B8A6/FFFFFF?text=Featured+Article" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Blog Post 1 -->
+                <article class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <img src="https://placehold.co/400x250/14B8A6/FFFFFF?text=Investing+Tips" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-xs font-semibold uppercase tracking-wider text-teal-600">Investing</span>
+                        <h3 class="text-xl font-bold text-slate-900 mt-2 mb-3 hover:text-teal-600 transition">
+                            <a href="#">5 Simple Rules of Successful Investing for Beginners</a>
+                        </h3>
+                        <p class="text-slate-600 mb-4">Learn the foundational principles that can help you start your investment journey with confidence...</p>
+                        <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+                            <span class="text-sm text-slate-500">5 min read</span>
+                            <a href="#" class="text-teal-600 hover:text-teal-700 font-semibold text-sm flex items-center">
+                                Read More
+                                <i data-feather="arrow-right" class="ml-1 h-4 w-4"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <article class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <img src="https://placehold.co/400x250/10B981/FFFFFF?text=Insurance+Guide" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-xs font-semibold uppercase tracking-wider text-green-600">Insurance</span>
+                        <h3 class="text-xl font-bold text-slate-900 mt-2 mb-3 hover:text-teal-600 transition">
+                            <a href="#">How Much Life Insurance Do You Really Need?</a>
+                        </h3>
+                        <p class="text-slate-600 mb-4">Calculate your insurance needs based on your family's requirements and financial goals...</p>
+                        <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+                            <span class="text-sm text-slate-500">7 min read</span>
+                            <a href="#" class="text-teal-600 hover:text-teal-700 font-semibold text-sm flex items-center">
+                                Read More
+                                <i data-feather="arrow-right" class="ml-1 h-4 w-4"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <img src="https://placehold.co/400x250/3B82F6/FFFFFF?text=Home+Loans" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-xs font-semibold uppercase tracking-wider text-blue-600">Loans</span>
+                        <h3 class="text-xl font-bold text-slate-900 mt-2 mb-3 hover:text-teal-600 transition">
+                            <a href="#">Home Loan Guide: Everything First-Time Buyers Need to Know</a>
+                        </h3>
+                        <p class="text-slate-600 mb-4">From eligibility to EMI calculation, understand everything about home loans in India...</p>
+                        <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+                            <span class="text-sm text-slate-500">10 min read</span>
+                            <a href="#" class="text-teal-600 hover:text-teal-700 font-semibold text-sm flex items-center">
+                                Read More
+                                <i data-feather="arrow-right" class="ml-1 h-4 w-4"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 4 -->
+                <article class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <img src="https://placehold.co/400x250/8B5CF6/FFFFFF?text=Tax+Saving" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-xs font-semibold uppercase tracking-wider text-purple-600">Tax Planning</span>
+                        <h3 class="text-xl font-bold text-slate-900 mt-2 mb-3 hover:text-teal-600 transition">
+                            <a href="#">Top 10 Tax-Saving Investment Options Under Section 80C</a>
+                        </h3>
+                        <p class="text-slate-600 mb-4">Maximize your tax savings with these government-approved investment instruments...</p>
+                        <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+                            <span class="text-sm text-slate-500">8 min read</span>
+                            <a href="#" class="text-teal-600 hover:text-teal-700 font-semibold text-sm flex items-center">
+                                Read More
+                                <i data-feather="arrow-right" class="ml-1 h-4 w-4"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 5 -->
+                <article class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <img src="https://placehold.co/400x250/F59E0B/FFFFFF?text=Retirement" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-xs font-semibold uppercase tracking-wider text-orange-600">Retirement</span>
+                        <h3 class="text-xl font-bold text-slate-900 mt-2 mb-3 hover:text-teal-600 transition">
+                            <a href="#">Building Your Retirement Corpus: A Step-by-Step Guide</a>
+                        </h3>
+                        <p class="text-slate-600 mb-4">Start planning for a comfortable retirement today with the right investment strategy...</p>
+                        <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+                            <span class="text-sm text-slate-500">12 min read</span>
+                            <a href="#" class="text-teal-600 hover:text-teal-700 font-semibold text-sm flex items-center">
+                                Read More
+                                <i data-feather="arrow-right" class="ml-1 h-4 w-4"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 6 -->
+                <article class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <img src="https://placehold.co/400x250/EC4899/FFFFFF?text=Mutual+Funds" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <span class="text-xs font-semibold uppercase tracking-wider text-pink-600">Investing</span>
+                        <h3 class="text-xl font-bold text-slate-900 mt-2 mb-3 hover:text-teal-600 transition">
+                            <a href="#">SIP vs Lump Sum: Which Investment Strategy is Right for You?</a>
+                        </h3>
+                        <p class="text-slate-600 mb-4">Compare systematic investment plans with lump sum investments to find the best approach...</p>
+                        <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+                            <span class="text-sm text-slate-500">6 min read</span>
+                            <a href="#" class="text-teal-600 hover:text-teal-700 font-semibold text-sm flex items-center">
+                                Read More
+                                <i data-feather="arrow-right" class="ml-1 h-4 w-4"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- View All Posts -->
+            <div class="text-center mt-12">
+                <a href="javascript:void(0);" onclick="showBlogPage()" class="inline-flex items-center px-8 py-4 bg-teal-600 text-white font-bold rounded-full hover:bg-teal-700 shadow-lg transition transform hover:scale-105">
+                    View All Articles
+                    <i data-feather="arrow-right" class="ml-2 h-5 w-5"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS SLIDER ===== -->
+    <section class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-teal-600 font-semibold text-sm uppercase tracking-wider">Client Stories</span>
+                <h2 class="text-4xl md:text-5xl font-black text-slate-900 mt-3 mb-4">
+                    Trusted by <span class="gradient-text">Thousands</span>
+                </h2>
+                <p class="text-xl text-slate-600 max-w-3xl mx-auto">
+                    See what our clients say about their financial journey with Investally.
+                </p>
+            </div>
+
+            <!-- Testimonials Slider Container -->
+            <div class="relative">
+                <!-- Slider Wrapper -->
+                <div class="overflow-hidden">
+                    <div id="testimonials-track" class="flex transition-transform duration-500 ease-in-out">
+                        <!-- Testimonial 1 -->
+                        <div class="w-full md:w-1/3 flex-shrink-0 px-4">
+                            <div class="bg-white rounded-xl shadow-lg p-8 h-full">
+                                <div class="flex items-center mb-4">
+                                    <div class="flex text-yellow-400">
+                                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                                    </div>
+                                </div>
+                                <p class="text-slate-700 mb-6 italic leading-relaxed">"Investally's PMS service completely transformed my investment approach. The personalized attention and expert guidance helped me achieve 18% returns consistently. Best decision I made for my wealth!"</p>
+                                <div class="flex items-center">
+                                    <img src="https://placehold.co/60x60/E2E8F0/334155?text=SK" class="w-14 h-14 rounded-full mr-4">
+                                    <div>
+                                        <p class="font-bold text-slate-900">Suresh Kumar</p>
+                                        <p class="text-sm text-slate-500">Business Owner, Mumbai</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 2 -->
+                        <div class="w-full md:w-1/3 flex-shrink-0 px-4">
+                            <div class="bg-white rounded-xl shadow-lg p-8 h-full">
+                                <div class="flex items-center mb-4">
+                                    <div class="flex text-yellow-400">
+                                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                                    </div>
+                                </div>
+                                <p class="text-slate-700 mb-6 italic leading-relaxed">"Getting the right term insurance was confusing until I found Investally. Their team patiently explained every detail and helped me choose the perfect policy for my family's needs. Very professional!"</p>
+                                <div class="flex items-center">
+                                    <img src="https://placehold.co/60x60/E2E8F0/334155?text=PM" class="w-14 h-14 rounded-full mr-4">
+                                    <div>
+                                        <p class="font-bold text-slate-900">Priya Mehta</p>
+                                        <p class="text-sm text-slate-500">Software Engineer, Bangalore</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 3 -->
+                        <div class="w-full md:w-1/3 flex-shrink-0 px-4">
+                            <div class="bg-white rounded-xl shadow-lg p-8 h-full">
+                                <div class="flex items-center mb-4">
+                                    <div class="flex text-yellow-400">
+                                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                                    </div>
+                                </div>
+                                <p class="text-slate-700 mb-6 italic leading-relaxed">"The home loan process was seamless with Investally. They secured the best interest rate, handled all paperwork, and I moved into my dream home within 6 weeks. Highly recommend their services!"</p>
+                                <div class="flex items-center">
+                                    <img src="https://placehold.co/60x60/E2E8F0/334155?text=RV" class="w-14 h-14 rounded-full mr-4">
+                                    <div>
+                                        <p class="font-bold text-slate-900">Rahul Verma</p>
+                                        <p class="text-sm text-slate-500">Marketing Manager, Delhi</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 4 -->
+                        <div class="w-full md:w-1/3 flex-shrink-0 px-4">
+                            <div class="bg-white rounded-xl shadow-lg p-8 h-full">
+                                <div class="flex items-center mb-4">
+                                    <div class="flex text-yellow-400">
+                                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                                    </div>
+                                </div>
+                                <p class="text-slate-700 mb-6 italic leading-relaxed">"Their mutual fund recommendations helped me build a diversified portfolio. The SIP approach made investing systematic and stress-free. My portfolio has grown by 22% in 2 years!"</p>
+                                <div class="flex items-center">
+                                    <img src="https://placehold.co/60x60/E2E8F0/334155?text=AS" class="w-14 h-14 rounded-full mr-4">
+                                    <div>
+                                        <p class="font-bold text-slate-900">Anita Singh</p>
+                                        <p class="text-sm text-slate-500">Teacher, Pune</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 5 -->
+                        <div class="w-full md:w-1/3 flex-shrink-0 px-4">
+                            <div class="bg-white rounded-xl shadow-lg p-8 h-full">
+                                <div class="flex items-center mb-4">
+                                    <div class="flex text-yellow-400">
+                                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                                    </div>
+                                </div>
+                                <p class="text-slate-700 mb-6 italic leading-relaxed">"As a first-time investor, I was nervous. Investally's team educated me patiently and helped me start with small steps. Now I have a growing investment portfolio and feel financially confident!"</p>
+                                <div class="flex items-center">
+                                    <img src="https://placehold.co/60x60/E2E8F0/334155?text=VG" class="w-14 h-14 rounded-full mr-4">
+                                    <div>
+                                        <p class="font-bold text-slate-900">Vikram Gupta</p>
+                                        <p class="text-sm text-slate-500">IT Professional, Hyderabad</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 6 -->
+                        <div class="w-full md:w-1/3 flex-shrink-0 px-4">
+                            <div class="bg-white rounded-xl shadow-lg p-8 h-full">
+                                <div class="flex items-center mb-4">
+                                    <div class="flex text-yellow-400">
+                                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                                        <i data-feather="star" class="w-5 h-5 fill-current"></i>
+                                    </div>
+                                </div>
+                                <p class="text-slate-700 mb-6 italic leading-relaxed">"Their tax-saving strategies saved me over ₹1 lakh in taxes this year! The personalized financial planning has been invaluable for my family's future. Truly grateful for their expertise."</p>
+                                <div class="flex items-center">
+                                    <img src="https://placehold.co/60x60/E2E8F0/334155?text=MD" class="w-14 h-14 rounded-full mr-4">
+                                    <div>
+                                        <p class="font-bold text-slate-900">Meera Desai</p>
+                                        <p class="text-sm text-slate-500">Doctor, Ahmedabad</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Arrows -->
+                <button id="prev-testimonial" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white hover:bg-teal-600 text-slate-900 hover:text-white rounded-full p-3 shadow-lg transition z-10 hidden md:block">
+                    <i data-feather="chevron-left" class="h-6 w-6"></i>
+                </button>
+                <button id="next-testimonial" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white hover:bg-teal-600 text-slate-900 hover:text-white rounded-full p-3 shadow-lg transition z-10 hidden md:block">
+                    <i data-feather="chevron-right" class="h-6 w-6"></i>
+                </button>
+
+                <!-- Dots Indicator -->
+                <div class="flex justify-center mt-8 space-x-2">
+                    <button class="testimonial-dot w-3 h-3 rounded-full bg-teal-600 transition" data-index="0"></button>
+                    <button class="testimonial-dot w-3 h-3 rounded-full bg-slate-300 transition" data-index="1"></button>
+                    <button class="testimonial-dot w-3 h-3 rounded-full bg-slate-300 transition" data-index="2"></button>
+                    <button class="testimonial-dot w-3 h-3 rounded-full bg-slate-300 transition" data-index="3"></button>
+                    <button class="testimonial-dot w-3 h-3 rounded-full bg-slate-300 transition" data-index="4"></button>
+                    <button class="testimonial-dot w-3 h-3 rounded-full bg-slate-300 transition" data-index="5"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA SECTION ===== -->
+    <section class="py-20 gradient-bg text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl md:text-5xl font-black mb-6">Ready to Start Your Financial Journey?</h2>
+            <p class="text-xl md:text-2xl text-teal-50 mb-10 max-w-3xl mx-auto">
+                Schedule a free consultation with our SEBI-registered experts. No obligations, just honest advice.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#contact" class="inline-flex items-center justify-center px-10 py-5 bg-white text-teal-600 font-bold rounded-full hover:bg-teal-50 shadow-xl transition text-lg transform hover:scale-105">
+                    Book Free Consultation
+                    <i data-feather="calendar" class="ml-3 h-6 w-6"></i>
+                </a>
+                <a href="tel:+919166779632" class="inline-flex items-center justify-center px-10 py-5 bg-transparent border-2 border-white text-white font-bold rounded-full hover:bg-white/10 transition text-lg">
+                    <i data-feather="phone" class="mr-3 h-6 w-6"></i>
+                    Call: +91 91667 79632
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-teal-600 font-semibold text-sm uppercase tracking-wider">Get In Touch</span>
+                <h2 class="text-4xl md:text-5xl font-black text-slate-900 mt-3 mb-4">
+                    Let's Talk About<br>
+                    <span class="gradient-text">Your Financial Goals</span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="bg-slate-50 rounded-2xl p-8">
+                    <h3 class="text-2xl font-bold text-slate-900 mb-6">Send us a message</h3>
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-2">Full Name *</label>
+                                <input type="text" required class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500" placeholder="John Doe">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-2">Phone Number *</label>
+                                <input type="tel" required class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500" placeholder="+91 98765 43210">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-2">Email Address *</label>
+                            <input type="email" required class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500" placeholder="john@example.com">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-2">I'm interested in</label>
+                            <select class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500">
+                                <option>Portfolio Management (PMS)</option>
+                                <option>Insurance Solutions</option>
+                                <option>Home Loans</option>
+                                <option>Personal Loans</option>
+                                <option>Mutual Funds</option>
+                                <option>General Consultation</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-2">Message</label>
+                            <textarea rows="4" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500" placeholder="Tell us about your financial goals..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full px-8 py-4 bg-teal-600 text-white font-bold rounded-lg hover:bg-teal-700 shadow-lg transition text-lg">
+                            Submit Inquiry
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="space-y-8">
+                    <!-- Office Info -->
+                    <div class="bg-slate-50 rounded-2xl p-8">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-6">Visit Our Office</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-teal-100 rounded-full p-3 mr-4">
+                                    <i data-feather="map-pin" class="text-teal-600 h-6 w-6"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-slate-900">Head Office</p>
+                                    <p class="text-slate-600">123 Financial District<br>Mumbai, Maharashtra 400001<br>India</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-teal-100 rounded-full p-3 mr-4">
+                                    <i data-feather="phone" class="text-teal-600 h-6 w-6"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-slate-900">Phone</p>
+                                    <a href="tel:+919166779632" class="text-teal-600 hover:text-teal-700 font-medium">+91 91667 79632</a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-teal-100 rounded-full p-3 mr-4">
+                                    <i data-feather="mail" class="text-teal-600 h-6 w-6"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-slate-900">Email</p>
+                                    <a href="mailto:Support@investally.co.in" class="text-teal-600 hover:text-teal-700 font-medium">Support@investally.co.in</a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 bg-teal-100 rounded-full p-3 mr-4">
+                                    <i data-feather="clock" class="text-teal-600 h-6 w-6"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-slate-900">Business Hours</p>
+                                    <p class="text-slate-600">Monday - Friday: 9:00 AM - 6:00 PM<br>Saturday: 10:00 AM - 2:00 PM<br>Sunday: Closed</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div class="bg-slate-50 rounded-2xl p-8">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-6">Follow Us</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-teal-100 p-4 rounded-xl text-teal-600 hover:bg-teal-200 transition">
+                                <i data-feather="linkedin" class="h-6 w-6"></i>
+                            </a>
+                            <a href="#" class="bg-teal-100 p-4 rounded-xl text-teal-600 hover:bg-teal-200 transition">
+                                <i data-feather="twitter" class="h-6 w-6"></i>
+                            </a>
+                            <a href="#" class="bg-teal-100 p-4 rounded-xl text-teal-600 hover:bg-teal-200 transition">
+                                <i data-feather="facebook" class="h-6 w-6"></i>
+                            </a>
+                            <a href="#" class="bg-teal-100 p-4 rounded-xl text-teal-600 hover:bg-teal-200 transition">
+                                <i data-feather="instagram" class="h-6 w-6"></i>
+                            </a>
+                            <a href="#" class="bg-teal-100 p-4 rounded-xl text-teal-600 hover:bg-teal-200 transition">
+                                <i data-feather="youtube" class="h-6 w-6"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BLOG LISTING PAGE (Hidden by default) ===== -->
+    <div id="blog-listing-page" class="hidden bg-slate-50 min-h-screen py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Breadcrumb -->
+            <div class="mb-8">
+                <a href="javascript:void(0);" onclick="showHomePage()" class="text-teal-600 hover:text-teal-700 font-medium inline-flex items-center">
+                    <i data-feather="arrow-left" class="h-4 w-4 mr-2"></i>
+                    Back to Home
+                </a>
+            </div>
+
+            <div class="text-center mb-16">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 mb-6">
+                    Financial <span class="gradient-text">Knowledge Center</span>
+                </h1>
+                <p class="text-xl text-slate-600 max-w-3xl mx-auto">
+                    Explore our comprehensive collection of articles, guides, and insights to help you make informed financial decisions.
+                </p>
+            </div>
+
+            <!-- Categories Filter -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12">
+                <button class="px-6 py-2 bg-teal-600 text-white font-semibold rounded-full hover:bg-teal-700 transition">All Articles</button>
+                <button class="px-6 py-2 bg-white text-slate-700 font-medium rounded-full border-2 border-slate-200 hover:border-teal-600 hover:text-teal-600 transition">Investing</button>
+                <button class="px-6 py-2 bg-white text-slate-700 font-medium rounded-full border-2 border-slate-200 hover:border-teal-600 hover:text-teal-600 transition">Insurance</button>
+                <button class="px-6 py-2 bg-white text-slate-700 font-medium rounded-full border-2 border-slate-200 hover:border-teal-600 hover:text-teal-600 transition">Loans</button>
+                <button class="px-6 py-2 bg-white text-slate-700 font-medium rounded-full border-2 border-slate-200 hover:border-teal-600 hover:text-teal-600 transition">Tax Planning</button>
+                <button class="px-6 py-2 bg-white text-slate-700 font-medium rounded-full border-2 border-slate-200 hover:border-teal-600 hover:text-teal-600 transition">Retirement</button>
+            </div>
+
+            <!-- Main Content with Sidebar -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Blog Grid (Left - 2 columns) -->
+                <div class="lg:col-span-2">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <!-- Blog Post 1 -->
+                <article class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <img src="https://placehold.co/400x250/14B8A6/FFFFFF?text=PMS+Guide" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-semibold uppercase tracking-wider text-teal-600">Investing</span>
+                            <span class="text-xs text-slate-500">Feb 1, 2025</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 hover:text-teal-600 transition">
+                            <a href="javascript:void(0);" onclick="showBlogPost(1)">Complete Guide to Portfolio Management Services in India</a>
+                        </h3>
+                        <p class="text-slate-600 mb-4">Discover how PMS can help you build wealth through professionally managed, personalized investment strategies...</p>
+                        <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+                            <div class="flex items-center">
+                                <img src="https://placehold.co/32x32/E2E8F0/334155?text=RK" class="w-8 h-8 rounded-full mr-2">
+                                <span class="text-sm text-slate-600">Rajesh Kumar</span>
+                            </div>
+                            <a href="javascript:void(0);" onclick="showBlogPost(1)" class="text-teal-600 hover:text-teal-700 font-semibold text-sm flex items-center">
+                                Read More
+                                <i data-feather="arrow-right" class="ml-1 h-4 w-4"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <article class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <img src="https://placehold.co/400x250/14B8A6/FFFFFF?text=Investing+Tips" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-semibold uppercase tracking-wider text-teal-600">Investing</span>
+                            <span class="text-xs text-slate-500">Jan 28, 2025</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 hover:text-teal-600 transition">
+                            <a href="javascript:void(0);" onclick="showBlogPost(2)">5 Simple Rules of Successful Investing for Beginners</a>
+                        </h3>
+                        <p class="text-slate-600 mb-4">Learn the foundational principles that can help you start your investment journey with confidence...</p>
+                        <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+                            <div class="flex items-center">
+                                <img src="https://placehold.co/32x32/E2E8F0/334155?text=PS" class="w-8 h-8 rounded-full mr-2">
+                                <span class="text-sm text-slate-600">Priya Sharma</span>
+                            </div>
+                            <a href="javascript:void(0);" onclick="showBlogPost(2)" class="text-teal-600 hover:text-teal-700 font-semibold text-sm flex items-center">
+                                Read More
+                                <i data-feather="arrow-right" class="ml-1 h-4 w-4"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Additional blog posts (similar structure) -->
+                <article class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <img src="https://placehold.co/400x250/10B981/FFFFFF?text=Insurance+Guide" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-semibold uppercase tracking-wider text-green-600">Insurance</span>
+                            <span class="text-xs text-slate-500">Jan 25, 2025</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 hover:text-teal-600 transition">
+                            <a href="javascript:void(0);" onclick="showBlogPost(3)">How Much Life Insurance Do You Really Need?</a>
+                        </h3>
+                        <p class="text-slate-600 mb-4">Calculate your insurance needs based on your family's requirements and financial goals...</p>
+                        <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+                            <div class="flex items-center">
+                                <img src="https://placehold.co/32x32/E2E8F0/334155?text=AM" class="w-8 h-8 rounded-full mr-4">
+                                <span class="text-sm text-slate-600">Arun Mehta</span>
+                            </div>
+                            <a href="javascript:void(0);" onclick="showBlogPost(3)" class="text-teal-600 hover:text-teal-700 font-semibold text-sm flex items-center">
+                                Read More
+                                <i data-feather="arrow-right" class="ml-1 h-4 w-4"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="flex justify-center items-center space-x-2 mt-12">
+                        <button class="px-4 py-2 bg-teal-600 text-white font-semibold rounded-lg hover:bg-teal-700 transition">1</button>
+                        <button class="px-4 py-2 bg-white text-slate-700 font-medium rounded-lg border-2 border-slate-200 hover:border-teal-600 hover:text-teal-600 transition">2</button>
+                        <button class="px-4 py-2 bg-white text-slate-700 font-medium rounded-lg border-2 border-slate-200 hover:border-teal-600 hover:text-teal-600 transition">3</button>
+                        <button class="px-4 py-2 bg-white text-slate-700 font-medium rounded-lg border-2 border-slate-200 hover:border-teal-600 hover:text-teal-600 transition">Next</button>
+                    </div>
+                </div>
+
+                <!-- Sticky Sidebar (Right - 1 column) -->
+                <div class="lg:col-span-1">
+                    <div class="sticky top-24 space-y-6">
+                        <!-- Product Metrics 2x2 -->
+                        <div class="bg-white rounded-xl shadow-lg p-6">
+                            <h3 class="text-lg font-bold text-slate-900 mb-4 flex items-center">
+                                <i data-feather="trending-up" class="h-5 w-5 text-teal-600 mr-2"></i>
+                                Our Products
+                            </h3>
+                            <div class="grid grid-cols-2 gap-4">
+                                <!-- PMS -->
+                                <a href="javascript:void(0);" onclick="showHomePage(); setTimeout(() => document.getElementById('products').scrollIntoView({behavior: 'smooth'}), 300)" class="group bg-gradient-to-br from-teal-50 to-teal-100 p-4 rounded-lg hover:shadow-md transition">
+                                    <div class="bg-teal-600 w-10 h-10 rounded-lg flex items-center justify-center mb-3">
+                                        <i data-feather="briefcase" class="text-white h-5 w-5"></i>
+                                    </div>
+                                    <p class="font-bold text-slate-900 text-sm mb-1">PMS</p>
+                                    <p class="text-xs text-slate-600">₹50L+ min</p>
+                                </a>
+
+                                <!-- Insurance -->
+                                <a href="javascript:void(0);" onclick="showHomePage(); setTimeout(() => document.getElementById('products').scrollIntoView({behavior: 'smooth'}), 300)" class="group bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-lg hover:shadow-md transition">
+                                    <div class="bg-green-600 w-10 h-10 rounded-lg flex items-center justify-center mb-3">
+                                        <i data-feather="shield" class="text-white h-5 w-5"></i>
+                                    </div>
+                                    <p class="font-bold text-slate-900 text-sm mb-1">Insurance</p>
+                                    <p class="text-xs text-slate-600">₹500/mo</p>
+                                </a>
+
+                                <!-- Loans -->
+                                <a href="javascript:void(0);" onclick="showHomePage(); setTimeout(() => document.getElementById('products').scrollIntoView({behavior: 'smooth'}), 300)" class="group bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg hover:shadow-md transition">
+                                    <div class="bg-blue-600 w-10 h-10 rounded-lg flex items-center justify-center mb-3">
+                                        <i data-feather="home" class="text-white h-5 w-5"></i>
+                                    </div>
+                                    <p class="font-bold text-slate-900 text-sm mb-1">Loans</p>
+                                    <p class="text-xs text-slate-600">8.5% p.a.</p>
+                                </a>
+
+                                <!-- Mutual Funds -->
+                                <a href="javascript:void(0);" onclick="showHomePage(); setTimeout(() => document.getElementById('products').scrollIntoView({behavior: 'smooth'}), 300)" class="group bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-lg hover:shadow-md transition">
+                                    <div class="bg-purple-600 w-10 h-10 rounded-lg flex items-center justify-center mb-3">
+                                        <i data-feather="trending-up" class="text-white h-5 w-5"></i>
+                                    </div>
+                                    <p class="font-bold text-slate-900 text-sm mb-1">Mutual Funds</p>
+                                    <p class="text-xs text-slate-600">SIP ₹500+</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Quick Calculators -->
+                        <div class="bg-white rounded-xl shadow-lg p-6">
+                            <h3 class="text-lg font-bold text-slate-900 mb-4 flex items-center">
+                                <i data-feather="calculator" class="h-5 w-5 text-teal-600 mr-2"></i>
+                                Quick Calculators
+                            </h3>
+                            <div class="space-y-3">
+                                <!-- SIP Calculator -->
+                                <a href="javascript:void(0);" onclick="showHomePage(); setTimeout(() => document.getElementById('calculators').scrollIntoView({behavior: 'smooth'}), 300)" class="block p-4 bg-teal-50 rounded-lg hover:bg-teal-100 transition group">
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <p class="font-bold text-slate-900 text-sm mb-1">SIP Calculator</p>
+                                            <p class="text-xs text-slate-600">Plan your investments</p>
+                                        </div>
+                                        <i data-feather="arrow-right" class="h-5 w-5 text-teal-600 group-hover:translate-x-1 transition"></i>
+                                    </div>
+                                </a>
+
+                                <!-- EMI Calculator -->
+                                <a href="javascript:void(0);" onclick="showHomePage(); setTimeout(() => document.getElementById('calculators').scrollIntoView({behavior: 'smooth'}), 300)" class="block p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition group">
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <p class="font-bold text-slate-900 text-sm mb-1">EMI Calculator</p>
+                                            <p class="text-xs text-slate-600">Calculate loan EMI</p>
+                                        </div>
+                                        <i data-feather="arrow-right" class="h-5 w-5 text-blue-600 group-hover:translate-x-1 transition"></i>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- CTA Card -->
+                        <div class="bg-gradient-to-br from-teal-500 to-teal-600 rounded-xl shadow-lg p-6 text-white">
+                            <div class="bg-white/20 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                                <i data-feather="phone" class="h-6 w-6"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Need Expert Advice?</h3>
+                            <p class="text-teal-50 text-sm mb-4">Get personalized financial guidance from our SEBI-registered experts.</p>
+                            <a href="javascript:void(0);" onclick="showHomePage(); setTimeout(() => document.getElementById('contact').scrollIntoView({behavior: 'smooth'}), 300)" class="block w-full px-4 py-3 bg-white text-teal-600 font-bold text-center rounded-lg hover:bg-teal-50 transition">
+                                Book Free Consultation
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- JavaScript for View Switching and Feather Icons -->
+    <!-- ===== BLOG POST DETAIL PAGE (Hidden by default) ===== -->
+    <div id="blog-post-page" class="hidden bg-white min-h-screen py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Breadcrumb -->
+            <div class="mb-8">
+                <a href="javascript:void(0);" onclick="showBlogPage()" class="text-teal-600 hover:text-teal-700 font-medium inline-flex items-center">
+                    <i data-feather="arrow-left" class="h-4 w-4 mr-2"></i>
+                    Back to Blog
+                </a>
+            </div>
+
+            <!-- Main Content with Sidebar -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Article Content (Left - 2 columns) -->
+                <div class="lg:col-span-2">
+            <!-- Article Header -->
+            <article>
+                <div class="mb-8">
+                    <span class="inline-block px-4 py-2 bg-teal-100 text-teal-600 font-semibold text-sm rounded-full mb-4">Investing</span>
+                    <h1 class="text-4xl md:text-5xl font-black text-slate-900 mb-6 leading-tight">Complete Guide to Portfolio Management Services in India</h1>
+
+                    <!-- Author & Meta -->
+                    <div class="flex items-center justify-between border-b border-slate-200 pb-6 mb-8">
+                        <div class="flex items-center">
+                            <img src="https://placehold.co/48x48/E2E8F0/334155?text=RK" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <p class="font-bold text-slate-900">Rajesh Kumar</p>
+                                <p class="text-sm text-slate-500">Chief Investment Officer • Feb 1, 2025 • 12 min read</p>
+                            </div>
+                        </div>
+                        <div class="flex space-x-3">
+                            <button class="p-2 text-slate-600 hover:text-teal-600 transition">
+                                <i data-feather="bookmark" class="h-5 w-5"></i>
+                            </button>
+                            <button class="p-2 text-slate-600 hover:text-teal-600 transition">
+                                <i data-feather="share-2" class="h-5 w-5"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Featured Image -->
+                <img src="https://placehold.co/800x450/14B8A6/FFFFFF?text=Portfolio+Management" class="w-full rounded-2xl shadow-xl mb-12" alt="Portfolio Management Services">
+
+                <!-- Article Content -->
+                <div class="prose prose-lg max-w-none">
+                    <p class="text-xl text-slate-600 leading-relaxed mb-8">Portfolio Management Services (PMS) has become an increasingly popular investment avenue for high-net-worth individuals in India. With the promise of personalized strategies and professional management, PMS offers a unique blend of flexibility and expertise.</p>
+
+                    <h2 class="text-3xl font-bold text-slate-900 mt-12 mb-6">What is Portfolio Management Services?</h2>
+                    <p class="text-slate-700 leading-relaxed mb-6">Portfolio Management Service is a professional service where qualified and experienced portfolio managers backed by a research team manage equity and equity-related instruments on behalf of clients. Unlike mutual funds, PMS offers direct ownership of securities in your Demat account.</p>
+
+                    <div class="bg-teal-50 border-l-4 border-teal-600 p-6 my-8 rounded-r-lg">
+                        <p class="text-slate-900 font-semibold mb-2">Key Highlight:</p>
+                        <p class="text-slate-700">PMS requires a minimum investment of ₹50 lakhs as per SEBI regulations, making it suitable for high-net-worth individuals seeking personalized investment strategies.</p>
+                    </div>
+
+                    <h2 class="text-3xl font-bold text-slate-900 mt-12 mb-6">Types of Portfolio Management Services</h2>
+
+                    <h3 class="text-2xl font-bold text-slate-900 mt-8 mb-4">1. Discretionary PMS</h3>
+                    <p class="text-slate-700 leading-relaxed mb-6">In this model, the portfolio manager has complete authority to make investment decisions on behalf of the client. The manager decides which securities to buy, sell, or hold based on the investment strategy agreed upon.</p>
+
+                    <h3 class="text-2xl font-bold text-slate-900 mt-8 mb-4">2. Non-Discretionary PMS</h3>
+                    <p class="text-slate-700 leading-relaxed mb-6">Here, the portfolio manager provides investment advice and recommendations, but the final decision rests with the client. The manager executes trades only after receiving explicit approval.</p>
+
+                    <h3 class="text-2xl font-bold text-slate-900 mt-8 mb-4">3. Advisory PMS</h3>
+                    <p class="text-slate-700 leading-relaxed mb-6">In this model, the portfolio manager simply provides advisory services. The client retains complete control over investment decisions and execution.</p>
+
+                    <h2 class="text-3xl font-bold text-slate-900 mt-12 mb-6">Benefits of PMS</h2>
+                    <ul class="list-disc list-inside space-y-3 text-slate-700 mb-8">
+                        <li><strong>Personalized Strategy:</strong> Investment approach tailored to your risk profile and goals</li>
+                        <li><strong>Direct Ownership:</strong> Securities are held in your name in your Demat account</li>
+                        <li><strong>Professional Management:</strong> Expert fund managers with proven track records</li>
+                        <li><strong>Transparency:</strong> Complete visibility into portfolio holdings and transactions</li>
+                        <li><strong>Tax Efficiency:</strong> Better control over tax implications through strategic timing</li>
+                        <li><strong>Customization:</strong> Ability to exclude specific sectors or stocks as per preferences</li>
+                    </ul>
+
+                    <h2 class="text-3xl font-bold text-slate-900 mt-12 mb-6">Costs and Fees Structure</h2>
+                    <p class="text-slate-700 leading-relaxed mb-6">PMS providers typically charge a management fee ranging from 1.5% to 3% of assets under management annually. Additionally, some managers charge performance fees (usually 10-20% of profits above a hurdle rate).</p>
+
+                    <div class="bg-slate-50 p-8 rounded-xl my-8">
+                        <h3 class="text-xl font-bold text-slate-900 mb-4">Typical Fee Structure:</h3>
+                        <div class="space-y-3 text-slate-700">
+                            <p><strong>Management Fee:</strong> 2-2.5% p.a.</p>
+                            <p><strong>Performance Fee:</strong> 15-20% above benchmark/hurdle</p>
+                            <p><strong>Minimum Investment:</strong> ₹50 lakhs (SEBI mandated)</p>
+                        </div>
+                    </div>
+
+                    <h2 class="text-3xl font-bold text-slate-900 mt-12 mb-6">Who Should Consider PMS?</h2>
+                    <p class="text-slate-700 leading-relaxed mb-6">PMS is ideal for:</p>
+                    <ul class="list-disc list-inside space-y-3 text-slate-700 mb-8">
+                        <li>High-net-worth individuals with investible surplus of ₹50 lakhs or more</li>
+                        <li>Investors seeking personalized investment strategies</li>
+                        <li>Those who want direct ownership of securities</li>
+                        <li>Individuals comfortable with equity market volatility</li>
+                        <li>Investors with long-term wealth creation goals (5+ years)</li>
+                    </ul>
+
+                    <h2 class="text-3xl font-bold text-slate-900 mt-12 mb-6">Conclusion</h2>
+                    <p class="text-slate-700 leading-relaxed mb-6">Portfolio Management Services offer a compelling investment option for wealthy individuals seeking professional management with personalization. However, it's crucial to choose the right PMS provider based on their track record, investment philosophy, and fee structure.</p>
+
+                    <p class="text-slate-700 leading-relaxed mb-6">At Investally, our PMS offerings are managed by SEBI-registered professionals with decades of experience in Indian markets. We focus on long-term wealth creation through disciplined, research-backed investment strategies.</p>
+
+                    <div class="bg-gradient-to-br from-teal-500 to-teal-600 p-8 rounded-2xl text-white mt-12">
+                        <h3 class="text-2xl font-bold mb-4">Ready to explore PMS for your portfolio?</h3>
+                        <p class="mb-6">Schedule a free consultation with our investment experts to discuss if PMS is right for you.</p>
+                        <a href="#contact" onclick="showHomePage()" class="inline-flex items-center px-6 py-3 bg-white text-teal-600 font-bold rounded-lg hover:bg-teal-50 transition">
+                            Book Free Consultation
+                            <i data-feather="arrow-right" class="ml-2 h-5 w-5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Tags -->
+                <div class="mt-12 pt-8 border-t border-slate-200">
+                    <p class="text-sm font-semibold text-slate-600 mb-3">Tags:</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-4 py-2 bg-slate-100 text-slate-700 rounded-full text-sm">PMS</span>
+                        <span class="px-4 py-2 bg-slate-100 text-slate-700 rounded-full text-sm">Portfolio Management</span>
+                        <span class="px-4 py-2 bg-slate-100 text-slate-700 rounded-full text-sm">Investing</span>
+                        <span class="px-4 py-2 bg-slate-100 text-slate-700 rounded-full text-sm">Wealth Creation</span>
+                        <span class="px-4 py-2 bg-slate-100 text-slate-700 rounded-full text-sm">SEBI</span>
+                    </div>
+                </div>
+            </article>
+                </div>
+
+                <!-- Sticky Sidebar (Right - 1 column) -->
+                <div class="lg:col-span-1">
+                    <div class="sticky top-24 space-y-6">
+                        <!-- Product Metrics 2x2 -->
+                        <div class="bg-slate-50 rounded-xl shadow-lg p-6">
+                            <h3 class="text-lg font-bold text-slate-900 mb-4 flex items-center">
+                                <i data-feather="trending-up" class="h-5 w-5 text-teal-600 mr-2"></i>
+                                Our Products
+                            </h3>
+                            <div class="grid grid-cols-2 gap-4">
+                                <!-- PMS -->
+                                <a href="javascript:void(0);" onclick="showHomePage(); setTimeout(() => document.getElementById('products').scrollIntoView({behavior: 'smooth'}), 300)" class="group bg-gradient-to-br from-teal-50 to-teal-100 p-4 rounded-lg hover:shadow-md transition">
+                                    <div class="bg-teal-600 w-10 h-10 rounded-lg flex items-center justify-center mb-3">
+                                        <i data-feather="briefcase" class="text-white h-5 w-5"></i>
+                                    </div>
+                                    <p class="font-bold text-slate-900 text-sm mb-1">PMS</p>
+                                    <p class="text-xs text-slate-600">₹50L+ min</p>
+                                </a>
+
+                                <!-- Insurance -->
+                                <a href="javascript:void(0);" onclick="showHomePage(); setTimeout(() => document.getElementById('products').scrollIntoView({behavior: 'smooth'}), 300)" class="group bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-lg hover:shadow-md transition">
+                                    <div class="bg-green-600 w-10 h-10 rounded-lg flex items-center justify-center mb-3">
+                                        <i data-feather="shield" class="text-white h-5 w-5"></i>
+                                    </div>
+                                    <p class="font-bold text-slate-900 text-sm mb-1">Insurance</p>
+                                    <p class="text-xs text-slate-600">₹500/mo</p>
+                                </a>
+
+                                <!-- Loans -->
+                                <a href="javascript:void(0);" onclick="showHomePage(); setTimeout(() => document.getElementById('products').scrollIntoView({behavior: 'smooth'}), 300)" class="group bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg hover:shadow-md transition">
+                                    <div class="bg-blue-600 w-10 h-10 rounded-lg flex items-center justify-center mb-3">
+                                        <i data-feather="home" class="text-white h-5 w-5"></i>
+                                    </div>
+                                    <p class="font-bold text-slate-900 text-sm mb-1">Loans</p>
+                                    <p class="text-xs text-slate-600">8.5% p.a.</p>
+                                </a>
+
+                                <!-- Mutual Funds -->
+                                <a href="javascript:void(0);" onclick="showHomePage(); setTimeout(() => document.getElementById('products').scrollIntoView({behavior: 'smooth'}), 300)" class="group bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-lg hover:shadow-md transition">
+                                    <div class="bg-purple-600 w-10 h-10 rounded-lg flex items-center justify-center mb-3">
+                                        <i data-feather="trending-up" class="text-white h-5 w-5"></i>
+                                    </div>
+                                    <p class="font-bold text-slate-900 text-sm mb-1">Mutual Funds</p>
+                                    <p class="text-xs text-slate-600">SIP ₹500+</p>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Quick Calculators -->
+                        <div class="bg-slate-50 rounded-xl shadow-lg p-6">
+                            <h3 class="text-lg font-bold text-slate-900 mb-4 flex items-center">
+                                <i data-feather="calculator" class="h-5 w-5 text-teal-600 mr-2"></i>
+                                Quick Calculators
+                            </h3>
+                            <div class="space-y-3">
+                                <!-- SIP Calculator -->
+                                <a href="javascript:void(0);" onclick="showHomePage(); setTimeout(() => document.getElementById('calculators').scrollIntoView({behavior: 'smooth'}), 300)" class="block p-4 bg-teal-50 rounded-lg hover:bg-teal-100 transition group">
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <p class="font-bold text-slate-900 text-sm mb-1">SIP Calculator</p>
+                                            <p class="text-xs text-slate-600">Plan your investments</p>
+                                        </div>
+                                        <i data-feather="arrow-right" class="h-5 w-5 text-teal-600 group-hover:translate-x-1 transition"></i>
+                                    </div>
+                                </a>
+
+                                <!-- EMI Calculator -->
+                                <a href="javascript:void(0);" onclick="showHomePage(); setTimeout(() => document.getElementById('calculators').scrollIntoView({behavior: 'smooth'}), 300)" class="block p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition group">
+                                    <div class="flex items-center justify-between">
+                                        <div>
+                                            <p class="font-bold text-slate-900 text-sm mb-1">EMI Calculator</p>
+                                            <p class="text-xs text-slate-600">Calculate loan EMI</p>
+                                        </div>
+                                        <i data-feather="arrow-right" class="h-5 w-5 text-blue-600 group-hover:translate-x-1 transition"></i>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- CTA Card -->
+                        <div class="bg-gradient-to-br from-teal-500 to-teal-600 rounded-xl shadow-lg p-6 text-white">
+                            <div class="bg-white/20 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                                <i data-feather="phone" class="h-6 w-6"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Need Expert Advice?</h3>
+                            <p class="text-teal-50 text-sm mb-4">Get personalized financial guidance from our SEBI-registered experts.</p>
+                            <a href="javascript:void(0);" onclick="showHomePage(); setTimeout(() => document.getElementById('contact').scrollIntoView({behavior: 'smooth'}), 300)" class="block w-full px-4 py-3 bg-white text-teal-600 font-bold text-center rounded-lg hover:bg-teal-50 transition">
+                                Book Free Consultation
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="bg-slate-900 text-slate-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
+                <!-- Brand -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <i data-feather="trending-up" class="text-teal-500 h-8 w-8"></i>
+                        <span class="ml-2 text-2xl font-bold text-white">Invest<span class="text-teal-500">ally</span></span>
+                    </div>
+                    <p class="text-slate-400 mb-6 max-w-md">Empowering Indian families to achieve financial freedom through expert guidance in Portfolio Management, Insurance, and Loans.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-slate-400 hover:text-teal-500 transition">
+                            <i data-feather="linkedin" class="h-5 w-5"></i>
+                        </a>
+                        <a href="#" class="text-slate-400 hover:text-teal-500 transition">
+                            <i data-feather="twitter" class="h-5 w-5"></i>
+                        </a>
+                        <a href="#" class="text-slate-400 hover:text-teal-500 transition">
+                            <i data-feather="facebook" class="h-5 w-5"></i>
+                        </a>
+                        <a href="#" class="text-slate-400 hover:text-teal-500 transition">
+                            <i data-feather="instagram" class="h-5 w-5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="hover:text-teal-500 transition">About Us</a></li>
+                        <li><a href="#products" class="hover:text-teal-500 transition">Our Services</a></li>
+                        <li><a href="#blog" class="hover:text-teal-500 transition">Knowledge Center</a></li>
+                        <li><a href="#contact" class="hover:text-teal-500 transition">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Products -->
+                <div>
+                    <h4 class="text-white font-bold mb-4">Products</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#products" class="hover:text-teal-500 transition">PMS Services</a></li>
+                        <li><a href="#products" class="hover:text-teal-500 transition">Insurance</a></li>
+                        <li><a href="#products" class="hover:text-teal-500 transition">Home Loans</a></li>
+                        <li><a href="#products" class="hover:text-teal-500 transition">Mutual Funds</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resources -->
+                <div>
+                    <h4 class="text-white font-bold mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#calculators" class="hover:text-teal-500 transition">Calculators</a></li>
+                        <li><a href="#blog" class="hover:text-teal-500 transition">Blog</a></li>
+                        <li><a href="#" class="hover:text-teal-500 transition">FAQs</a></li>
+                        <li><a href="#" class="hover:text-teal-500 transition">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Footer -->
+            <div class="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-slate-400 text-sm">&copy; 2025 Investally. All rights reserved.</p>
+                <p class="text-slate-400 text-sm mt-4 md:mt-0">SEBI Registered | ISO 9001:2015 Certified</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
     <script>
         // Initialize Feather Icons
         feather.replace();
 
-        // View switching function
-        function showView(viewName) {
-            // Hide all views
-            document.querySelectorAll('[data-view]').forEach(view => {
-                view.classList.add('hidden');
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        // Close mobile menu if open
+                        document.getElementById('mobile-menu').classList.add('hidden');
+                    }
+                }
             });
-            
-            // Show the selected view
-            const activeView = document.querySelector(`[data-view="${viewName}"]`);
-            if (activeView) {
-                activeView.classList.remove('hidden');
-                // Scroll to top for new view
-                window.scrollTo(0, 0);
-            }
+        });
+
+        // Testimonials Slider
+        const testimonialsTrack = document.getElementById('testimonials-track');
+        const prevButton = document.getElementById('prev-testimonial');
+        const nextButton = document.getElementById('next-testimonial');
+        const dots = document.querySelectorAll('.testimonial-dot');
+
+        let currentIndex = 0;
+        const totalTestimonials = 6;
+        let slidesToShow = window.innerWidth >= 768 ? 3 : 1; // 3 on desktop, 1 on mobile
+        const maxIndex = totalTestimonials - slidesToShow;
+        let autoSlideInterval;
+
+        // Update slider position
+        function updateSlider() {
+            const slideWidth = 100 / slidesToShow;
+            const translateX = -(currentIndex * slideWidth);
+            testimonialsTrack.style.transform = `translateX(${translateX}%)`;
+
+            // Update dots
+            dots.forEach((dot, index) => {
+                if (index === currentIndex) {
+                    dot.classList.remove('bg-slate-300');
+                    dot.classList.add('bg-teal-600');
+                } else {
+                    dot.classList.remove('bg-teal-600');
+                    dot.classList.add('bg-slate-300');
+                }
+            });
         }
 
-        // Show the default view on load
-        document.addEventListener('DOMContentLoaded', () => {
-            showView('blog-list-view');
+        // Next slide
+        function nextSlide() {
+            currentIndex = currentIndex >= maxIndex ? 0 : currentIndex + 1;
+            updateSlider();
+        }
 
-            // Mobile menu toggle
-            const menuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            if (menuButton) {
-                menuButton.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('hidden');
-                });
+        // Previous slide
+        function prevSlide() {
+            currentIndex = currentIndex <= 0 ? maxIndex : currentIndex - 1;
+            updateSlider();
+        }
+
+        // Event listeners for navigation buttons
+        nextButton.addEventListener('click', () => {
+            nextSlide();
+            resetAutoSlide();
+        });
+
+        prevButton.addEventListener('click', () => {
+            prevSlide();
+            resetAutoSlide();
+        });
+
+        // Event listeners for dot indicators
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                if (index <= maxIndex) {
+                    currentIndex = index;
+                    updateSlider();
+                    resetAutoSlide();
+                }
+            });
+        });
+
+        // Auto-slide functionality
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(nextSlide, 5000); // Auto-slide every 5 seconds
+        }
+
+        function stopAutoSlide() {
+            clearInterval(autoSlideInterval);
+        }
+
+        function resetAutoSlide() {
+            stopAutoSlide();
+            startAutoSlide();
+        }
+
+        // Pause auto-slide on hover
+        const sliderContainer = testimonialsTrack.parentElement.parentElement;
+        sliderContainer.addEventListener('mouseenter', stopAutoSlide);
+        sliderContainer.addEventListener('mouseleave', startAutoSlide);
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            const newSlidesToShow = window.innerWidth >= 768 ? 3 : 1;
+            if (newSlidesToShow !== slidesToShow) {
+                slidesToShow = newSlidesToShow;
+                currentIndex = 0; // Reset to first slide on resize
+                updateSlider();
             }
         });
+
+        // Initialize slider
+        updateSlider();
+        startAutoSlide();
+
+        // Re-initialize feather icons after slider updates
+        feather.replace();
+
+        // Page switching functions for blog
+        function showBlogPage() {
+            // Hide all main sections
+            document.querySelectorAll('section').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.querySelector('footer').style.display = 'none';
+
+            // Show blog listing page
+            document.getElementById('blog-listing-page').classList.remove('hidden');
+            document.getElementById('blog-post-page').classList.add('hidden');
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Re-initialize feather icons
+            setTimeout(() => feather.replace(), 100);
+        }
+
+        function showBlogPost(postId) {
+            // Hide blog listing
+            document.getElementById('blog-listing-page').classList.add('hidden');
+
+            // Show blog post page
+            document.getElementById('blog-post-page').classList.remove('hidden');
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Re-initialize feather icons
+            setTimeout(() => feather.replace(), 100);
+        }
+
+        function showHomePage() {
+            // Show all main sections
+            document.querySelectorAll('section').forEach(section => {
+                section.style.display = 'block';
+            });
+            document.querySelector('footer').style.display = 'block';
+
+            // Hide blog pages
+            document.getElementById('blog-listing-page').classList.add('hidden');
+            document.getElementById('blog-post-page').classList.add('hidden');
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Re-initialize feather icons
+            setTimeout(() => feather.replace(), 100);
+        }
     </script>
 </body>
 </html>
