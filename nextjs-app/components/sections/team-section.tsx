@@ -1,6 +1,26 @@
 import { Award, Shield, Briefcase, TrendingUp, Linkedin, Mail, Users, Target, Compass, Eye, BookOpen } from "lucide-react";
 
 export default function TeamSection() {
+  // Color scheme mapping for Tailwind class generation
+  const colorSchemes = {
+    teal: {
+      gradient: "bg-gradient-to-br from-teal-400 to-teal-600",
+      text: "text-teal-600",
+      badge: "bg-teal-100 text-teal-700",
+      socialBg: "bg-teal-100",
+      socialHover: "hover:bg-teal-200",
+      icon: "text-teal-600"
+    },
+    green: {
+      gradient: "bg-gradient-to-br from-green-400 to-green-600",
+      text: "text-green-600",
+      badge: "bg-green-100 text-green-700",
+      socialBg: "bg-green-100",
+      socialHover: "hover:bg-green-200",
+      icon: "text-green-600"
+    }
+  } as const;
+
   const teamMembers = [
     {
       name: "Adarsh Katta",
@@ -78,59 +98,62 @@ export default function TeamSection() {
         {/* Team Members */}
         <div className="max-w-6xl mx-auto mb-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {teamMembers.map((member, index) => (
-              <div key={index} className="bg-slate-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition p-8">
-                <div className="flex flex-col items-center text-center">
-                  {/* Square Image */}
-                  <div className="relative w-48 h-48 mb-4">
-                    <div className={`w-full h-full bg-gradient-to-br from-${member.color}-400 to-${member.color}-600 rounded-xl shadow-md flex items-center justify-center text-white text-5xl font-bold`}>
-                      {member.name.split(' ').map(n => n[0]).join('')}
+            {teamMembers.map((member, index) => {
+              const colors = colorSchemes[member.color as keyof typeof colorSchemes];
+              return (
+                <div key={index} className="bg-slate-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 p-8">
+                  <div className="flex flex-col items-center text-center">
+                    {/* Square Image */}
+                    <div className="relative w-48 h-48 mb-4">
+                      <div className={`w-full h-full ${colors.gradient} rounded-xl shadow-md flex items-center justify-center text-white text-5xl font-bold`}>
+                        {member.name.split(' ').map(n => n[0]).join('')}
+                      </div>
+                    </div>
+
+                    {/* Name and Title */}
+                    <h3 className="text-2xl font-black text-slate-900 mb-1">{member.name}</h3>
+                    <p className={`${colors.text} font-semibold mb-3`}>{member.title}</p>
+
+                    {/* Education Badges */}
+                    <div className="flex flex-wrap gap-2 justify-center mb-4">
+                      {member.education.map((edu, idx) => (
+                        <span key={idx} className={`px-3 py-1 ${colors.badge} text-xs font-semibold rounded-full`}>
+                          {edu}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Social Links */}
+                    <div className="flex space-x-3 mb-6">
+                      <a href="#" className={`${colors.socialBg} p-2 rounded-lg ${colors.socialHover} transition-all duration-300`}>
+                        <Linkedin className={`h-5 w-5 ${colors.icon}`} />
+                      </a>
+                      <a href="#" className={`${colors.socialBg} p-2 rounded-lg ${colors.socialHover} transition-all duration-300`}>
+                        <Mail className={`h-5 w-5 ${colors.icon}`} />
+                      </a>
+                    </div>
+
+                    {/* Description */}
+                    <p className="text-slate-600 text-sm mb-6 leading-relaxed text-left">
+                      {member.description}
+                    </p>
+
+                    {/* Credentials */}
+                    <div className="w-full space-y-3">
+                      {member.credentials.map((cred, idx) => (
+                        <div key={idx} className="bg-white rounded-lg p-3 text-left">
+                          <div className="flex items-center mb-1">
+                            <cred.icon className={`h-4 w-4 ${colors.icon} mr-2`} />
+                            <p className="text-sm font-semibold text-slate-900">{cred.title}</p>
+                          </div>
+                          <p className="text-xs text-slate-500 ml-6">{cred.subtitle}</p>
+                        </div>
+                      ))}
                     </div>
                   </div>
-
-                  {/* Name and Title */}
-                  <h3 className="text-2xl font-black text-slate-900 mb-1">{member.name}</h3>
-                  <p className={`text-${member.color}-600 font-semibold mb-3`}>{member.title}</p>
-
-                  {/* Education Badges */}
-                  <div className="flex flex-wrap gap-2 justify-center mb-4">
-                    {member.education.map((edu, idx) => (
-                      <span key={idx} className={`px-3 py-1 bg-${member.color}-100 text-${member.color}-700 text-xs font-semibold rounded-full`}>
-                        {edu}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Social Links */}
-                  <div className="flex space-x-3 mb-6">
-                    <a href="#" className={`bg-${member.color}-100 p-2 rounded-lg hover:bg-${member.color}-200 transition`}>
-                      <Linkedin className={`h-5 w-5 text-${member.color}-600`} />
-                    </a>
-                    <a href="#" className={`bg-${member.color}-100 p-2 rounded-lg hover:bg-${member.color}-200 transition`}>
-                      <Mail className={`h-5 w-5 text-${member.color}-600`} />
-                    </a>
-                  </div>
-
-                  {/* Description */}
-                  <p className="text-slate-600 text-sm mb-6 leading-relaxed text-left">
-                    {member.description}
-                  </p>
-
-                  {/* Credentials */}
-                  <div className="w-full space-y-3">
-                    {member.credentials.map((cred, idx) => (
-                      <div key={idx} className="bg-white rounded-lg p-3 text-left">
-                        <div className="flex items-center mb-1">
-                          <cred.icon className={`h-4 w-4 text-${member.color}-600 mr-2`} />
-                          <p className="text-sm font-semibold text-slate-900">{cred.title}</p>
-                        </div>
-                        <p className="text-xs text-slate-500 ml-6">{cred.subtitle}</p>
-                      </div>
-                    ))}
-                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
@@ -147,7 +170,7 @@ export default function TeamSection() {
 
           <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
             {philosophy.map((item, index) => (
-              <div key={index} className={`bg-gradient-to-br ${item.gradient} rounded-2xl p-10 hover:shadow-xl transition`}>
+              <div key={index} className={`bg-gradient-to-br ${item.gradient} rounded-2xl p-10 hover:shadow-xl transition-shadow duration-300`}>
                 <div className={`${item.iconBg} w-20 h-20 rounded-full flex items-center justify-center mb-6`}>
                   <item.icon className="text-white h-10 w-10" />
                 </div>

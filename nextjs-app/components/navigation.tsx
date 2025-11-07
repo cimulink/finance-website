@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { TrendingUp, Menu, X, ChevronDown, Briefcase, Shield, Home, CreditCard, ArrowRight } from "lucide-react";
+import Image from "next/image";
+import { Menu, X, ChevronDown, Briefcase, Shield, Home, CreditCard, ArrowRight, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -59,28 +60,32 @@ export default function Navigation() {
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" className="flex items-center">
-              <TrendingUp className="text-teal-600 h-8 w-8" />
-              <span className="ml-2 text-2xl font-bold text-slate-900">
-                Invest<span className="text-teal-600">ally</span>
-              </span>
+              <Image
+                src="/investally_logo.png"
+                alt="Investally Logo"
+                width={180}
+                height={60}
+                className="h-12 w-auto"
+                priority
+              />
             </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex md:items-center md:space-x-8">
-            <Link href="/" className="text-slate-700 hover:text-teal-600 font-medium transition">
+            <Link href="/" className="text-slate-700 hover:text-teal-600 font-medium transition-colors duration-300">
               Home
             </Link>
-            <Link href="/#about" className="text-slate-700 hover:text-teal-600 font-medium transition">
+            <Link href="/#about" className="text-slate-700 hover:text-teal-600 font-medium transition-colors duration-300">
               About
             </Link>
-            <Link href="/#team" className="text-slate-700 hover:text-teal-600 font-medium transition">
+            <Link href="/#team" className="text-slate-700 hover:text-teal-600 font-medium transition-colors duration-300">
               Team
             </Link>
 
             {/* Products Dropdown */}
             <DropdownMenu>
-              <DropdownMenuTrigger className="text-slate-700 hover:text-teal-600 font-medium transition inline-flex items-center">
+              <DropdownMenuTrigger className="text-slate-700 hover:text-teal-600 font-medium transition-colors duration-300 inline-flex items-center">
                 Products
                 <ChevronDown className="h-4 w-4 ml-1" />
               </DropdownMenuTrigger>
@@ -99,10 +104,10 @@ export default function Navigation() {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <Link href="/#calculators" className="text-slate-700 hover:text-teal-600 font-medium transition">
+            <Link href="/#calculators" className="text-slate-700 hover:text-teal-600 font-medium transition-colors duration-300">
               Calculators
             </Link>
-            <Link href="/blog" className="text-slate-700 hover:text-teal-600 font-medium transition">
+            <Link href="/blog" className="text-slate-700 hover:text-teal-600 font-medium transition-colors duration-300">
               Blog
             </Link>
             <Button asChild className="rounded-full bg-teal-600 hover:bg-teal-700">
@@ -127,25 +132,25 @@ export default function Navigation() {
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div className="md:hidden pb-4">
-            <Link href="/" className="block text-slate-700 hover:text-teal-600 font-medium px-3 py-2 rounded-md transition">
+            <Link href="/" className="block text-slate-700 hover:text-teal-600 font-medium px-3 py-2 rounded-md transition-colors duration-300">
               Home
             </Link>
-            <Link href="/#about" className="block text-slate-700 hover:text-teal-600 font-medium px-3 py-2 rounded-md transition">
+            <Link href="/#about" className="block text-slate-700 hover:text-teal-600 font-medium px-3 py-2 rounded-md transition-colors duration-300">
               About
             </Link>
-            <Link href="/#team" className="block text-slate-700 hover:text-teal-600 font-medium px-3 py-2 rounded-md transition">
+            <Link href="/#team" className="block text-slate-700 hover:text-teal-600 font-medium px-3 py-2 rounded-md transition-colors duration-300">
               Team
             </Link>
-            <Link href="/#products" className="block text-slate-700 hover:text-teal-600 font-medium px-3 py-2 rounded-md transition">
+            <Link href="/#products" className="block text-slate-700 hover:text-teal-600 font-medium px-3 py-2 rounded-md transition-colors duration-300">
               Products
             </Link>
-            <Link href="/#calculators" className="block text-slate-700 hover:text-teal-600 font-medium px-3 py-2 rounded-md transition">
+            <Link href="/#calculators" className="block text-slate-700 hover:text-teal-600 font-medium px-3 py-2 rounded-md transition-colors duration-300">
               Calculators
             </Link>
-            <Link href="/blog" className="block text-slate-700 hover:text-teal-600 font-medium px-3 py-2 rounded-md transition">
+            <Link href="/blog" className="block text-slate-700 hover:text-teal-600 font-medium px-3 py-2 rounded-md transition-colors duration-300">
               Blog
             </Link>
-            <Link href="/#contact" className="block text-teal-600 font-semibold px-3 py-2 rounded-md transition">
+            <Link href="/#contact" className="block text-teal-600 font-semibold px-3 py-2 rounded-md transition-colors duration-300">
               Get Started
             </Link>
           </div>

@@ -124,13 +124,13 @@ export default function TestimonialsSection() {
           {/* Navigation Arrows */}
           <button
             onClick={prevSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white hover:bg-teal-600 text-slate-900 hover:text-white rounded-full p-3 shadow-lg transition z-10 hidden md:block"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white hover:bg-teal-600 text-slate-900 hover:text-white rounded-full p-3 shadow-lg transition-all duration-300 z-10 hidden md:block"
           >
             <ChevronLeft className="h-6 w-6" />
           </button>
           <button
             onClick={nextSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white hover:bg-teal-600 text-slate-900 hover:text-white rounded-full p-3 shadow-lg transition z-10 hidden md:block"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white hover:bg-teal-600 text-slate-900 hover:text-white rounded-full p-3 shadow-lg transition-all duration-300 z-10 hidden md:block"
           >
             <ChevronRight className="h-6 w-6" />
           </button>
@@ -141,7 +141,7 @@ export default function TestimonialsSection() {
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index <= maxIndex ? index : maxIndex)}
-                className={`w-3 h-3 rounded-full transition ${
+                className={`w-3 h-3 rounded-full transition-colors duration-300 ${
                   currentIndex === index ? 'bg-teal-600' : 'bg-slate-300'
                 }`}
               />

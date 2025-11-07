@@ -41,10 +41,60 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  /* Brand Colors */
+  --color-brand-teal-50: var(--brand-teal-50);
+  --color-brand-teal-100: var(--brand-teal-100);
+  --color-brand-teal-400: var(--brand-teal-400);
+  --color-brand-teal-500: var(--brand-teal-500);
+  --color-brand-teal-600: var(--brand-teal-600);
+  --color-brand-teal-700: var(--brand-teal-700);
+  --color-brand-green-50: var(--brand-green-50);
+  --color-brand-green-100: var(--brand-green-100);
+  --color-brand-green-400: var(--brand-green-400);
+  --color-brand-green-500: var(--brand-green-500);
+  --color-brand-green-600: var(--brand-green-600);
 }
 
 :root {
-  --radius: 0.625rem;
+  /* Investally Brand Colors - Based on Logo */
+  --brand-teal-700: #0d9488;
+  --brand-teal-600: #14b8a6;
+  --brand-teal-500: #2dd4bf;
+  --brand-teal-400: #5eead4;
+  --brand-teal-100: #ccfbf1;
+  --brand-teal-50: #f0fdfa;
+
+  --brand-green-600: #65a30d;
+  --brand-green-500: #84cc16;
+  --brand-green-400: #a3e635;
+  --brand-green-100: #ecfccb;
+  --brand-green-50: #f7fee7;
+
+  /* Design System Tokens */
+  --spacing-unit: 4px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+  /* Animation */
+  --duration-fast: 150ms;
+  --duration-base: 300ms;
+  --duration-slow: 500ms;
+
+  /* Border Radius */
+  --radius: 0.75rem;
+  --radius-sm: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+  --radius-full: 9999px;
+
+  /* Shadcn UI Variables */
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -63,11 +113,14 @@
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
+
+  /* Chart Colors - Based on Logo */
+  --chart-1: #10b981;
+  --chart-2: #84cc16;
+  --chart-3: #65a30d;
+  --chart-4: #3b82f6;
+  --chart-5: #a855f7;
+
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -151,5 +204,123 @@
   .card-hover:hover {
     transform: translateY(-8px);
     box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  }
+
+  /* Typography Utility Classes */
+  .heading-hero {
+    font-size: 3.75rem; /* 60px */
+    line-height: 1.1;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+  }
+
+  .heading-1 {
+    font-size: 3rem; /* 48px */
+    line-height: 1.15;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  .heading-2 {
+    font-size: 2.25rem; /* 36px */
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .heading-3 {
+    font-size: 1.875rem; /* 30px */
+    line-height: 1.3;
+    font-weight: 700;
+  }
+
+  .heading-4 {
+    font-size: 1.5rem; /* 24px */
+    line-height: 1.4;
+    font-weight: 600;
+  }
+
+  .body-large {
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.6;
+    font-weight: 400;
+  }
+
+  .body-base {
+    font-size: 1rem; /* 16px */
+    line-height: 1.6;
+    font-weight: 400;
+  }
+
+  .body-small {
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.5;
+    font-weight: 400;
+  }
+
+  .label-large {
+    font-size: 1rem; /* 16px */
+    line-height: 1.5;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+
+  .label-base {
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.5;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+
+  .label-small {
+    font-size: 0.75rem; /* 12px */
+    line-height: 1.4;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  /* Responsive Typography */
+  @media (max-width: 768px) {
+    .heading-hero {
+      font-size: 2.5rem; /* 40px on mobile */
+    }
+
+    .heading-1 {
+      font-size: 2rem; /* 32px on mobile */
+    }
+
+    .heading-2 {
+      font-size: 1.75rem; /* 28px on mobile */
+    }
+  }
+
+  /* Shadow Utility Classes using CSS Variables */
+  .shadow-custom-sm {
+    box-shadow: var(--shadow-sm);
+  }
+
+  .shadow-custom {
+    box-shadow: var(--shadow);
+  }
+
+  .shadow-custom-md {
+    box-shadow: var(--shadow-md);
+  }
+
+  .shadow-custom-lg {
+    box-shadow: var(--shadow-lg);
+  }
+
+  .shadow-custom-xl {
+    box-shadow: var(--shadow-xl);
+  }
+
+  .hover\:shadow-custom-lg:hover {
+    box-shadow: var(--shadow-lg);
+  }
+
+  .hover\:shadow-custom-xl:hover {
+    box-shadow: var(--shadow-xl);
   }
 }

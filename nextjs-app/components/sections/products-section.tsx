@@ -145,7 +145,7 @@ export default function ProductsSection() {
           {additionalServices.map((service, index) => (
             <div
               key={index}
-              className="text-center p-6 bg-slate-50 rounded-xl hover:bg-slate-100 transition cursor-pointer"
+              className="text-center p-6 bg-slate-50 rounded-xl hover:bg-slate-100 transition-colors duration-300 cursor-pointer"
             >
               <service.icon className={`${service.color} h-8 w-8 mx-auto mb-3`} />
               <h4 className="font-bold text-slate-900">{service.title}</h4>

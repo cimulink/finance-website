@@ -74,7 +74,7 @@ export default function BlogSection() {
           {categories.map((cat, index) => (
             <button
               key={index}
-              className={`px-6 py-2 font-${index === 0 ? 'semibold' : 'medium'} rounded-full border-2 transition ${
+              className={`px-6 py-2 font-${index === 0 ? 'semibold' : 'medium'} rounded-full border-2 transition-all duration-300 ${
                 index === 0
                   ? 'bg-teal-600 text-white border-teal-600 hover:bg-teal-700'
                   : 'bg-white text-slate-700 border-slate-200 hover:border-teal-600 hover:text-teal-600'
@@ -101,7 +101,7 @@ export default function BlogSection() {
                   <p className="text-teal-100 text-sm">Chief Investment Officer</p>
                 </div>
               </div>
-              <Link href="/blog/portfolio-management-guide" className="inline-flex items-center px-6 py-3 bg-white text-teal-600 font-bold rounded-lg hover:bg-teal-50 transition">
+              <Link href="/blog/portfolio-management-guide" className="inline-flex items-center px-6 py-3 bg-white text-teal-600 font-bold rounded-lg hover:bg-teal-50 transition-colors duration-300">
                 Read Full Article
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
@@ -123,7 +123,7 @@ export default function BlogSection() {
               </div>
               <div className="p-6">
                 <span className={`text-xs font-semibold uppercase tracking-wider ${post.categoryColor}`}>{post.category}</span>
-                <h3 className="text-xl font-bold text-slate-900 mt-2 mb-3 hover:text-teal-600 transition">
+                <h3 className="text-xl font-bold text-slate-900 mt-2 mb-3 hover:text-teal-600 transition-colors duration-300">
                   <Link href={`/blog/post-${index + 1}`}>{post.title}</Link>
                 </h3>
                 <p className="text-slate-600 mb-4">{post.excerpt}</p>

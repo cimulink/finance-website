@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { TrendingUp, Mail, Phone, MapPin } from "lucide-react";
+import Image from "next/image";
+import { Mail, Phone, MapPin } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -8,26 +9,29 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center mb-4">
-              <TrendingUp className="text-teal-500 h-8 w-8" />
-              <span className="ml-2 text-2xl font-bold">
-                Invest<span className="text-teal-500">ally</span>
-              </span>
-            </div>
+            <Link href="/" className="inline-block mb-4">
+              <Image
+                src="/investally_logo.png"
+                alt="Investally Logo"
+                width={180}
+                height={60}
+                className="h-12 w-auto brightness-0 invert"
+              />
+            </Link>
             <p className="text-slate-400 mb-4">
               Your trusted partner in achieving financial success. Expert guidance in Portfolio Management, Insurance, and Loans.
             </p>
             <div className="space-y-2">
               <div className="flex items-center text-slate-400">
                 <Mail className="h-4 w-4 mr-2" />
-                <a href="mailto:info@investally.com" className="hover:text-teal-500">
-                  info@investally.com
+                <a href="mailto:Support@investally.co.in" className="hover:text-teal-500 transition-colors duration-300">
+                  Support@investally.co.in
                 </a>
               </div>
               <div className="flex items-center text-slate-400">
                 <Phone className="h-4 w-4 mr-2" />
-                <a href="tel:+911234567890" className="hover:text-teal-500">
-                  +91 123 456 7890
+                <a href="tel:+919166779632" className="hover:text-teal-500 transition-colors duration-300">
+                  +91 91667 79632
                 </a>
               </div>
               <div className="flex items-start text-slate-400">
@@ -42,22 +46,22 @@ export default function Footer() {
             <h3 className="text-lg font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="#home" className="text-slate-400 hover:text-teal-500">
+                <Link href="/" className="text-slate-400 hover:text-teal-500 transition-colors duration-300">
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="#about" className="text-slate-400 hover:text-teal-500">
+                <Link href="/#about" className="text-slate-400 hover:text-teal-500 transition-colors duration-300">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="#products" className="text-slate-400 hover:text-teal-500">
+                <Link href="/#products" className="text-slate-400 hover:text-teal-500 transition-colors duration-300">
                   Products
                 </Link>
               </li>
               <li>
-                <Link href="#calculators" className="text-slate-400 hover:text-teal-500">
+                <Link href="/calculators" className="text-slate-400 hover:text-teal-500 transition-colors duration-300">
                   Calculators
                 </Link>
               </li>
@@ -69,22 +73,22 @@ export default function Footer() {
             <h3 className="text-lg font-bold mb-4">Services</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="#products" className="text-slate-400 hover:text-teal-500">
+                <Link href="/#products" className="text-slate-400 hover:text-teal-500 transition-colors duration-300">
                   Portfolio Management
                 </Link>
               </li>
               <li>
-                <Link href="#products" className="text-slate-400 hover:text-teal-500">
+                <Link href="/#products" className="text-slate-400 hover:text-teal-500 transition-colors duration-300">
                   Insurance Solutions
                 </Link>
               </li>
               <li>
-                <Link href="#products" className="text-slate-400 hover:text-teal-500">
+                <Link href="/#products" className="text-slate-400 hover:text-teal-500 transition-colors duration-300">
                   Home Loans
                 </Link>
               </li>
               <li>
-                <Link href="#products" className="text-slate-400 hover:text-teal-500">
+                <Link href="/#products" className="text-slate-400 hover:text-teal-500 transition-colors duration-300">
                   Mutual Funds
                 </Link>
               </li>
