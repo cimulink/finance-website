@@ -1,10 +1,9 @@
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowLeft, ArrowRight, Briefcase, Shield, Home, TrendingUp, Calculator } from "lucide-react";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import { getAllPosts, getAllCategories } from "@/lib/sanity.api";
-import { urlForImage } from "@/lib/sanity.image";
+import BlogListingClient from "@/components/blog-listing-client";
 
 export default async function BlogListingPage() {
   // Fetch posts and categories from Sanity
@@ -36,109 +35,11 @@ export default async function BlogListingPage() {
             </p>
           </div>
 
-          {/* Categories Filter */}
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
-            {categories.map((cat, index) => (
-              <button
-                key={index}
-                className={`px-6 py-2 font-${index === 0 ? 'semibold' : 'medium'} rounded-full border-2 transition ${
-                  index === 0
-                    ? 'bg-teal-600 text-white border-teal-600 hover:bg-teal-700'
-                    : 'bg-white text-slate-700 border-slate-200 hover:border-teal-600 hover:text-teal-600'
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
-
           {/* Main Content with Sidebar */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Blog Grid (Left - 2 columns) */}
             <div className="lg:col-span-2">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-                {blogPosts.length === 0 ? (
-                  <div className="col-span-2 text-center py-12">
-                    <p className="text-slate-600 text-lg mb-4">No blog posts found.</p>
-                    <p className="text-slate-500">Create your first blog post in Sanity Studio!</p>
-                  </div>
-                ) : (
-                  blogPosts.map((post) => {
-                    const imageUrl = post.mainImage?.asset ? urlForImage(post.mainImage).width(600).height(400).url() : null;
-                    const authorInitials = post.author?.name?.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase() || 'UN';
-                    const formattedDate = new Date(post.publishedAt).toLocaleDateString('en-US', {
-                      month: 'short',
-                      day: 'numeric',
-                      year: 'numeric'
-                    });
-
-                    return (
-                      <article key={post._id} className="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
-                        {imageUrl ? (
-                          <div className="relative w-full h-48 overflow-hidden">
-                            <Image
-                              src={imageUrl}
-                              alt={post.mainImage?.alt || post.title}
-                              fill
-                              className="object-cover"
-                            />
-                          </div>
-                        ) : (
-                          <div className="w-full h-48 bg-gradient-to-br from-teal-400 to-teal-600 flex items-center justify-center text-white font-semibold text-lg">
-                            {post.title.substring(0, 30)}...
-                          </div>
-                        )}
-                        <div className="p-6">
-                          <div className="flex items-center justify-between mb-3">
-                            <span
-                              className="text-xs font-semibold uppercase tracking-wider"
-                              style={{ color: post.category?.color || '#0d9488' }}
-                            >
-                              {post.category?.title || 'Uncategorized'}
-                            </span>
-                            <span className="text-xs text-slate-500">{formattedDate}</span>
-                          </div>
-                          <h3 className="text-xl font-bold text-slate-900 mb-3 hover:text-teal-600 transition">
-                            <Link href={`/blog/${post.slug.current}`}>{post.title}</Link>
-                          </h3>
-                          <p className="text-slate-600 mb-4">{post.excerpt}</p>
-                          <div className="flex items-center justify-between pt-4 border-t border-slate-100">
-                            <div className="flex items-center">
-                              {post.author?.image?.asset ? (
-                                <div className="relative w-8 h-8 rounded-full overflow-hidden mr-2">
-                                  <Image
-                                    src={urlForImage(post.author.image).width(32).height(32).url()}
-                                    alt={post.author.name}
-                                    fill
-                                    className="object-cover"
-                                  />
-                                </div>
-                              ) : (
-                                <div className="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center font-bold text-slate-600 mr-2 text-xs">
-                                  {authorInitials}
-                                </div>
-                              )}
-                              <span className="text-sm text-slate-600">{post.author?.name || 'Anonymous'}</span>
-                            </div>
-                            <Link href={`/blog/${post.slug.current}`} className="text-teal-600 hover:text-teal-700 font-semibold text-sm flex items-center">
-                              Read More
-                              <ArrowRight className="ml-1 h-4 w-4" />
-                            </Link>
-                          </div>
-                        </div>
-                      </article>
-                    );
-                  })
-                )}
-              </div>
-
-              {/* Pagination */}
-              <div className="flex justify-center items-center space-x-2 mt-12">
-                <button className="px-4 py-2 bg-teal-600 text-white font-semibold rounded-lg hover:bg-teal-700 transition">1</button>
-                <button className="px-4 py-2 bg-white text-slate-700 font-medium rounded-lg border-2 border-slate-200 hover:border-teal-600 hover:text-teal-600 transition">2</button>
-                <button className="px-4 py-2 bg-white text-slate-700 font-medium rounded-lg border-2 border-slate-200 hover:border-teal-600 hover:text-teal-600 transition">3</button>
-                <button className="px-4 py-2 bg-white text-slate-700 font-medium rounded-lg border-2 border-slate-200 hover:border-teal-600 hover:text-teal-600 transition">Next</button>
-              </div>
+              <BlogListingClient posts={blogPosts} categories={categories} />
             </div>
 
             {/* Sticky Sidebar (Right - 1 column) */}

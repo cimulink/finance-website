@@ -1,9 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { getAllPosts, getAllCategories } from "@/lib/sanity.api";
 import { urlForImage } from "@/lib/sanity.image";
+import BlogGridClient from "./blog-grid-client";
 
 export default async function BlogSection() {
   // Fetch posts and categories from Sanity
@@ -13,10 +13,8 @@ export default async function BlogSection() {
   // Get featured post (first post with featured flag, or first post)
   const featuredPost = allPosts.find(post => post.featured) || allPosts[0];
 
-  // Get latest 6 posts (excluding featured if it's in the list)
-  const blogPosts = allPosts
-    .filter(post => post._id !== featuredPost?._id)
-    .slice(0, 6);
+  // Get all posts (excluding featured if it's in the list) for the grid
+  const blogPosts = allPosts.filter(post => post._id !== featuredPost?._id);
 
   // Build categories list
   const categories = ["All Topics", ...sanityCategories.map(cat => cat.title)];
@@ -32,22 +30,6 @@ export default async function BlogSection() {
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             Empowering you with insights, tips, and strategies to make smarter financial decisions.
           </p>
-        </div>
-
-        {/* Categories */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
-          {categories.map((cat, index) => (
-            <button
-              key={index}
-              className={`px-6 py-2 font-${index === 0 ? 'semibold' : 'medium'} rounded-full border-2 transition-all duration-300 ${
-                index === 0
-                  ? 'bg-teal-600 text-white border-teal-600 hover:bg-teal-700'
-                  : 'bg-white text-slate-700 border-slate-200 hover:border-teal-600 hover:text-teal-600'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
         </div>
 
         {/* Featured Article */}
@@ -101,62 +83,8 @@ export default async function BlogSection() {
           </div>
         )}
 
-        {/* Blog Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogPosts.map((post) => {
-            const imageUrl = post.mainImage?.asset ? urlForImage(post.mainImage).width(400).height(300).url() : null;
-
-            return (
-              <article key={post._id} className="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
-                {imageUrl ? (
-                  <div className="relative w-full h-48 overflow-hidden">
-                    <Image
-                      src={imageUrl}
-                      alt={post.mainImage?.alt || post.title}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                ) : (
-                  <div className="w-full h-48 bg-gradient-to-br from-teal-400 to-teal-600 flex items-center justify-center text-white font-semibold">
-                    {post.title.substring(0, 30)}...
-                  </div>
-                )}
-                <div className="p-6">
-                  <span
-                    className="text-xs font-semibold uppercase tracking-wider"
-                    style={{ color: post.category?.color || '#0d9488' }}
-                  >
-                    {post.category?.title || 'Uncategorized'}
-                  </span>
-                  <h3 className="text-xl font-bold text-slate-900 mt-2 mb-3 hover:text-teal-600 transition-colors duration-300">
-                    <Link href={`/blog/${post.slug.current}`}>{post.title}</Link>
-                  </h3>
-                  <p className="text-slate-600 mb-4">{post.excerpt}</p>
-                  <div className="flex items-center justify-between pt-4 border-t border-slate-100">
-                    <span className="text-sm text-slate-500">
-                      {post.readTime ? `${post.readTime} min read` : 'Read'}
-                    </span>
-                    <Link href={`/blog/${post.slug.current}`} className="text-teal-600 hover:text-teal-700 font-semibold text-sm flex items-center">
-                      Read More
-                      <ArrowRight className="ml-1 h-4 w-4" />
-                    </Link>
-                  </div>
-                </div>
-              </article>
-            );
-          })}
-        </div>
-
-        {/* View All Posts */}
-        <div className="text-center mt-12">
-          <Button asChild size="lg" className="bg-teal-600 hover:bg-teal-700 rounded-full shadow-lg font-bold">
-            <Link href="/blog" className="inline-flex items-center">
-              View All Articles
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
-          </Button>
-        </div>
+        {/* Blog Grid with Search and Filters */}
+        <BlogGridClient posts={blogPosts} categories={categories} />
       </div>
     </section>
   );

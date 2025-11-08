@@ -38,7 +38,8 @@ export const blogPostsQuery = groq`
     publishedAt,
     featured,
     tags,
-    readTime
+    readTime,
+    body
   }
 `
 

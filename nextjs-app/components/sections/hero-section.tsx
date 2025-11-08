@@ -61,7 +61,12 @@ export default function HeroSection() {
             <div className="relative z-10">
               <div className="rounded-2xl shadow-2xl overflow-hidden bg-white/10 backdrop-blur-sm border border-white/20 p-8 aspect-[6/5]">
                 <div className="w-full h-full flex items-center justify-center text-teal-100 text-xl font-semibold">
-                  Financial Growth
+                 <Image
+                  src={"/hero-section-image.png"}
+                  alt={"Financial Freedom"}
+                  fill
+                  className="object-cover"
+                />
                 </div>
               </div>
             </div>

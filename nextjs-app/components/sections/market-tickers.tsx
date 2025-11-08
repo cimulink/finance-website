@@ -1,43 +1,19 @@
-import { TrendingUp, TrendingDown } from "lucide-react";
+import TradingViewWidget from "../tradingview-widget";
 
 export default function MarketTickers() {
-  const marketData = [
-    {
-      label: "NIFTY 50",
-      value: "23,450.80",
-      change: "+0.52%",
-      isPositive: true,
-    },
-    {
-      label: "SENSEX",
-      value: "77,120.10",
-      change: "-0.27%",
-      isPositive: false,
-    },
-    {
-      label: "GOLD",
-      value: "₹72,850",
-      change: "+0.43%",
-      isPositive: true,
-    },
+  const symbols = [
+    { symbol: "BSE:SENSEX", title: "SENSEX" },
+    { symbol: "FX_IDC:XAUINR", title: "Gold (INR)" },
+    { symbol: "FX_IDC:XAGINR", title: "Silver (INR)" }
   ];
 
   return (
     <section className="bg-white py-6 border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between overflow-x-auto space-x-8">
-          {marketData.map((item, index) => (
-            <div key={index} className="flex items-center space-x-2 flex-shrink-0">
-              <span className="text-sm font-medium text-slate-600">{item.label}:</span>
-              <span className="text-lg font-bold text-slate-900">{item.value}</span>
-              <span className={`text-sm flex items-center ${item.isPositive ? "text-green-600" : "text-red-600"}`}>
-                {item.isPositive ? (
-                  <TrendingUp className="h-4 w-4 mr-1" />
-                ) : (
-                  <TrendingDown className="h-4 w-4 mr-1" />
-                )}
-                {item.change}
-              </span>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {symbols.map((item) => (
+            <div key={item.symbol} className="w-full aspect-[2/1]">
+              <TradingViewWidget symbol={item.symbol} />
             </div>
           ))}
         </div>
