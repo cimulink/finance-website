@@ -12,7 +12,10 @@
       "Bash(nvm list:*)",
       "Bash(nvm install:*)",
       "Bash(nvm use:*)",
-      "Bash(node:*)"
+      "Bash(node:*)",
+      "mcp__ide__executeCode",
+      "Bash(python:*)",
+      "Bash(pip install:*)"
     ],
     "deny": [],
     "ask": []
