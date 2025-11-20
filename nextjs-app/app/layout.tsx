@@ -19,6 +19,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const blogOnlyMode = process.env.NEXT_PUBLIC_BLOG_ONLY_MODE === 'true';
+
   return (
     <html lang="en" className="scroll-smooth">
       <body
@@ -27,24 +29,26 @@ export default function RootLayout({
         {children}
         <WhatsAppFloat />
 
-        {/* Tawk.to Live Chat Widget */}
-        <Script
-          id="tawk-to-widget"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-              (function(){
-                var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-                s1.async=true;
-                s1.src='https://embed.tawk.to/691028f00345ae195a0f5bae/1j9jhvrco';
-                s1.charset='UTF-8';
-                s1.setAttribute('crossorigin','*');
-                s0.parentNode.insertBefore(s1,s0);
-              })();
-            `,
-          }}
-        />
+        {/* Tawk.to Live Chat Widget - Hidden in blog-only mode */}
+        {!blogOnlyMode && (
+          <Script
+            id="tawk-to-widget"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
+                var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+                (function(){
+                  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+                  s1.async=true;
+                  s1.src='https://embed.tawk.to/691028f00345ae195a0f5bae/1j9jhvrco';
+                  s1.charset='UTF-8';
+                  s1.setAttribute('crossorigin','*');
+                  s0.parentNode.insertBefore(s1,s0);
+                })();
+              `,
+            }}
+          />
+        )}
       </body>
     </html>
   );

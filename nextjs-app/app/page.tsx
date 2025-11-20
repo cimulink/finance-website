@@ -1,3 +1,4 @@
+import { redirect } from 'next/navigation';
 import Navigation from "@/components/navigation";
 import HeroSection from "@/components/sections/hero-section";
 import MarketTickers from "@/components/sections/market-tickers";
@@ -12,6 +13,14 @@ import ContactSection from "@/components/sections/contact-section";
 import Footer from "@/components/footer";
 
 export default function Home() {
+  // Check if blog-only mode is enabled
+  const blogOnlyMode = process.env.NEXT_PUBLIC_BLOG_ONLY_MODE === 'true';
+
+  // Redirect to blog if blog-only mode is enabled
+  if (blogOnlyMode) {
+    redirect('/blog');
+  }
+
   return (
     <>
       <Navigation />
