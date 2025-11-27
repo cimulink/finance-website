@@ -1,27 +1,28 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect } from "react";
 import { MapPin, Phone, Mail, Clock, Linkedin, Twitter, Facebook, Instagram, Youtube } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 export default function ContactSection() {
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    interest: "Portfolio Management (PMS)",
-    message: ""
-  });
+  useEffect(() => {
+    // Load Tally embed script
+    const script = document.createElement('script');
+    script.src = 'https://tally.so/widgets/embed.js';
+    script.async = true;
+    script.onload = () => {
+      if (typeof window !== 'undefined' && (window as any).Tally) {
+        (window as any).Tally.loadEmbeds();
+      }
+    };
+    document.body.appendChild(script);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Add your form submission logic here
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+    return () => {
+      // Cleanup
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
+  }, []);
 
   return (
     <section id="contact" className="py-20 bg-white">
@@ -38,76 +39,16 @@ export default function ContactSection() {
           {/* Contact Form */}
           <div className="bg-slate-50 rounded-2xl p-8">
             <h3 className="text-2xl font-bold text-slate-900 mb-6">Send us a message</h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">Full Name *</label>
-                  <input
-                    type="text"
-                    name="name"
-                    required
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
-                    placeholder="John Doe"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">Phone Number *</label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    required
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
-                    placeholder="+91 98765 43210"
-                  />
-                </div>
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">Email Address *</label>
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
-                  placeholder="john@example.com"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">I'm interested in</label>
-                <select
-                  name="interest"
-                  value={formData.interest}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
-                >
-                  <option>Portfolio Management (PMS)</option>
-                  <option>Insurance Solutions</option>
-                  <option>Home Loans</option>
-                  <option>Personal Loans</option>
-                  <option>Mutual Funds</option>
-                  <option>General Consultation</option>
-                </select>
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">Message</label>
-                <textarea
-                  rows={4}
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
-                  placeholder="Tell us about your financial goals..."
-                />
-              </div>
-              <Button type="submit" className="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-4 text-lg shadow-lg">
-                Submit Inquiry
-              </Button>
-            </form>
+            <iframe
+              data-tally-src="https://tally.so/embed/zxxyZM?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+              loading="lazy"
+              width="100%"
+              height="542"
+              frameBorder="0"
+              marginHeight={0}
+              marginWidth={0}
+              title="Send us a message"
+            ></iframe>
           </div>
 
           {/* Contact Info */}
@@ -122,7 +63,7 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <p className="font-semibold text-slate-900">Head Office</p>
-                    <p className="text-slate-600">123 Financial District<br />Mumbai, Maharashtra 400001<br />India</p>
+                    <p className="text-slate-600">Powai<br />Mumbai, Maharashtra<br />India</p>
                   </div>
                 </div>
 

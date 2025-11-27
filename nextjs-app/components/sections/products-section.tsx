@@ -5,16 +5,16 @@ import { Button } from "@/components/ui/button";
 export default function ProductsSection() {
   const mainProducts = [
     {
-      icon: Briefcase,
-      title: "Portfolio Management",
-      description: "Professional management of your equity and debt investments with personalized strategies and direct ownership.",
+      icon: TrendingUp,
+      title: "Wealth Building",
+      description: "We transform your investments into wealth-building engines through Mutual Funds and Portfolio Management Services. Our experts align your portfolio with life goals, providing strategic guidance and quarterly reviews to keep your investments on track.",
       features: [
-        "Customized investment strategies",
-        "Direct ownership of securities",
-        "Expert fund managers",
+        "Mutual Funds & SIP Plans",
+        "Portfolio Management (PMS)",
+        "Quarterly Portfolio Reviews",
       ],
-      minLabel: "Min. Investment",
-      minValue: "₹50 Lakhs",
+      minLabel: "",
+      minValue: "",
       gradient: "from-teal-50 to-teal-100",
       border: "border-teal-200",
       iconBg: "bg-teal-600",
@@ -24,15 +24,15 @@ export default function ProductsSection() {
     },
     {
       icon: Shield,
-      title: "Insurance Solutions",
-      description: "Comprehensive protection plans for life, health, and family security. Compare from 20+ top insurers.",
+      title: "Insurance & Protection",
+      description: "Your protection matters more than our commission. We decode complex policies, ensuring you're covered for real risks—not oversold. From selection to claims, we're your advocate, making insurance work for you.",
       features: [
         "Term & Health Insurance",
-        "Critical illness coverage",
-        "Child education plans",
+        "Critical Illness Coverage",
+        "Child & Family Plans",
       ],
-      minLabel: "Starting From",
-      minValue: "₹500/month",
+      minLabel: "",
+      minValue: "",
       gradient: "from-green-50 to-green-100",
       border: "border-green-200",
       iconBg: "bg-green-600",
@@ -42,15 +42,15 @@ export default function ProductsSection() {
     },
     {
       icon: Home,
-      title: "Home & Personal Loans",
-      description: "Quick approvals and best interest rates for home purchase, construction, and personal financing needs.",
+      title: "Loans & Financing",
+      description: "Whether you're buying your dream home or need personal financing, we secure the best rates and fastest approvals. Our network and expertise turn loan applications from headaches into stepping stones.",
       features: [
-        "Interest from 8.50% p.a.",
-        "Up to 30 years tenure",
-        "90% LTV ratio available",
+        "Home Loans - 8.50% p.a. onwards",
+        "Personal Loans - Quick Approvals",
+        "Up to 30 Years Tenure",
       ],
-      minLabel: "Approval Time",
-      minValue: "48 Hours",
+      minLabel: "",
+      minValue: "",
       gradient: "from-blue-50 to-blue-100",
       border: "border-blue-200",
       iconBg: "bg-blue-600",
@@ -126,8 +126,8 @@ export default function ProductsSection() {
 
               <div className={`flex items-center justify-between pt-6 border-t ${product.border}`}>
                 <div>
-                  <p className="text-sm text-slate-600">{product.minLabel}</p>
-                  <p className={`text-xl font-bold ${product.checkColor}`}>{product.minValue}</p>
+                  {product.minLabel && <p className="text-sm text-slate-600">{product.minLabel}</p>}
+                  {product.minValue && <p className={`text-xl font-bold ${product.checkColor}`}>{product.minValue}</p>}
                 </div>
                 <Button asChild className={`${product.buttonBg} text-white rounded-lg`}>
                   <Link href="#contact" className="inline-flex items-center">

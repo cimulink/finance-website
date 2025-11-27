@@ -3,24 +3,24 @@ import { Target, Shield, BookOpen, Award } from "lucide-react";
 export default function AboutSection() {
   const features = [
     {
-      icon: Target,
+      icon: "🌟",
       title: "Personalized Solutions",
-      description: "Every financial journey is unique. We create customized strategies that align with your goals, risk appetite, and life stage.",
+      description: "Every investor's journey is different — and so are our strategies. We design plans that reflect your goals, risk comfort, and life stage — not someone else's template.",
     },
     {
-      icon: Shield,
-      title: "SEBI Registered Experts",
-      description: "Our team of certified financial planners and SEBI-registered advisors brings decades of experience in Indian markets.",
+      icon: "🧠",
+      title: "SEBI-Registered",
+      description: "Our certified advisors and SEBI-registered professionals bring years of experience across finance and investments — combining global insights with a deep understanding of Indian markets.",
     },
     {
-      icon: BookOpen,
+      icon: "📚",
       title: "Education First",
-      description: "We believe in empowering you with knowledge. Our blog and resources help you make informed financial decisions.",
+      description: "We don't just tell you where to invest — we help you understand why. Through simplified explanations and regular insights, we make sure you feel confident about every decision.",
     },
     {
-      icon: Award,
+      icon: "🤝",
       title: "Transparent & Trustworthy",
-      description: "No hidden fees, no jargon. We maintain complete transparency in all our dealings and always put your interests first.",
+      description: "No jargon. No hidden fees. We maintain complete transparency and put your interests above everything else — always.",
     },
   ];
 
@@ -42,9 +42,16 @@ export default function AboutSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Image */}
           <div className="relative">
-            <div className="rounded-2xl shadow-xl overflow-hidden bg-gradient-to-br from-teal-400 to-teal-600 aspect-[3/2] flex items-center justify-center text-white text-2xl font-bold">
-              Our Mission
-            </div>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="rounded-2xl shadow-xl w-full h-auto"
+            >
+              <source src="/mission video.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
             <div className="absolute -bottom-6 -right-6 bg-teal-600 text-white p-6 rounded-xl shadow-lg">
               <p className="text-4xl font-bold">98%</p>
               <p className="text-teal-100 text-sm">Client Satisfaction</p>
@@ -58,7 +65,7 @@ export default function AboutSection() {
               {features.map((feature, index) => (
                 <div key={index} className="flex items-start">
                   <div className="flex-shrink-0 bg-teal-100 rounded-full p-3 mr-4">
-                    <feature.icon className="text-teal-600 h-6 w-6" />
+                    <span className="text-2xl">{feature.icon}</span>
                   </div>
                   <div>
                     <h4 className="text-xl font-bold text-slate-900 mb-2">{feature.title}</h4>

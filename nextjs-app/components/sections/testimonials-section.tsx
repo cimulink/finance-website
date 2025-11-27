@@ -11,37 +11,37 @@ export default function TestimonialsSection() {
     {
       text: "Investally's PMS service completely transformed my investment approach. The personalized attention and expert guidance helped me achieve 18% returns consistently. Best decision I made for my wealth!",
       name: "Suresh Kumar",
-      role: "Business Owner, Mumbai",
+      role: "Business Owner, Age 45, Mumbai",
       initials: "SK"
     },
     {
       text: "Getting the right term insurance was confusing until I found Investally. Their team patiently explained every detail and helped me choose the perfect policy for my family's needs. Very professional!",
       name: "Priya Mehta",
-      role: "Software Engineer, Bangalore",
+      role: "Software Engineer, Age 32, Bangalore",
       initials: "PM"
     },
     {
       text: "The home loan process was seamless with Investally. They secured the best interest rate, handled all paperwork, and I moved into my dream home within 6 weeks. Highly recommend their services!",
       name: "Rahul Verma",
-      role: "Marketing Manager, Delhi",
+      role: "Marketing Manager, Age 38, Delhi",
       initials: "RV"
     },
     {
       text: "Their mutual fund recommendations helped me build a diversified portfolio. The SIP approach made investing systematic and stress-free. My portfolio has grown by 22% in 2 years!",
       name: "Anita Singh",
-      role: "Teacher, Pune",
+      role: "Teacher, Age 40, Pune",
       initials: "AS"
     },
     {
       text: "As a first-time investor, I was nervous. Investally's team educated me patiently and helped me start with small steps. Now I have a growing investment portfolio and feel financially confident!",
       name: "Vikram Gupta",
-      role: "IT Professional, Hyderabad",
+      role: "IT Professional, Age 29, Hyderabad",
       initials: "VG"
     },
     {
       text: "Their tax-saving strategies saved me over ₹1 lakh in taxes this year! The personalized financial planning has been invaluable for my family's future. Truly grateful for their expertise.",
       name: "Meera Desai",
-      role: "Doctor, Ahmedabad",
+      role: "Doctor, Age 42, Ahmedabad",
       initials: "MD"
     }
   ];

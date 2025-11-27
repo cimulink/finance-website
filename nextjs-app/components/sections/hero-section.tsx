@@ -15,14 +15,14 @@ export default function HeroSection() {
               Trusted by Indian Families
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-tight">
-              Build Your
+              We don't sell Investments-
               <br />
-              <span className="text-teal-100">Financial Future</span>
-              <br />
-              With Confidence
+              <span className="text-teal-100">We build Investors</span>
             </h1>
             <p className="text-xl md:text-2xl text-teal-50 mb-8 leading-relaxed">
-              Expert guidance in Portfolio Management, Insurance, and Loans. We help Indian families grow wealth and secure their dreams.
+              Personalized financial guidance that grows with you - built on trust, transparency, and continuous review.
+              <br />
+              Because wealth creation isn't a one-time act- it's a lifelong relationship.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button asChild size="lg" className="bg-white text-teal-600 hover:bg-teal-50 rounded-full shadow-xl font-bold">

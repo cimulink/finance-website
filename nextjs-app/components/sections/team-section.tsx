@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Award, Shield, Briefcase, TrendingUp, Linkedin, Mail, Users, Target, Compass, Eye, BookOpen } from "lucide-react";
 
 export default function TeamSection() {
@@ -24,26 +25,24 @@ export default function TeamSection() {
   const teamMembers = [
     {
       name: "Adarsh Katta",
-      title: "Chief Investment Officer & Founder",
-      education: ["MBA Finance", "CFA Charterholder"],
+      title: "Founder of InvestAlly",
+      image: "/adarsh katta.JPG",
       description: "With over 18 years of experience in portfolio management and wealth advisory, Adarsh has successfully managed ₹2000+ Cr in client assets. His expertise spans across equity research, portfolio construction, and risk management.",
       credentials: [
         { icon: Award, title: "SEBI RIA", subtitle: "Registration: INA000012345" },
-        { icon: Shield, title: "SEBI Portfolio Manager", subtitle: "Registration: INP000004567" },
-        { icon: Briefcase, title: "NISM Certified", subtitle: "Series XV & XA" },
-        { icon: TrendingUp, title: "Track Record", subtitle: "15%+ CAGR | 5000+ clients" },
+        { icon: Shield, title: "Mutual Fund Distributor", subtitle: "ARN: INP000004567" },
+        { icon: Users, title: "Specialization", subtitle: "Estate | Tax | Insurance" },
       ],
       color: "teal"
     },
     {
-      name: "Minakshi Chitlangia",
-      title: "Head of Wealth Management & Founder",
-      education: ["CFP", "CA"],
+      name: "Minakshi Maheshwari",
+      title: "Founder of InvestAlly",
+      image: "/minakshi maheshwari.jpg",
       description: "Minakshi brings 15+ years of experience in financial planning, insurance advisory, and tax optimization. She specializes in comprehensive wealth management solutions for HNI families and has helped over 3000 clients achieve financial security.",
       credentials: [
         { icon: Award, title: "SEBI RIA", subtitle: "Registration: INA000067890" },
-        { icon: Shield, title: "IRDAI Licensed", subtitle: "DB 789456/2010" },
-        { icon: Briefcase, title: "CFP® Professional", subtitle: "FPSB India Member" },
+        { icon: Shield, title: "Mutual Fund Distributor", subtitle: "ARN: INP000004567" },
         { icon: Users, title: "Specialization", subtitle: "Estate | Tax | Insurance" },
       ],
       color: "green"
@@ -105,23 +104,18 @@ export default function TeamSection() {
                   <div className="flex flex-col items-center text-center">
                     {/* Square Image */}
                     <div className="relative w-48 h-48 mb-4">
-                      <div className={`w-full h-full ${colors.gradient} rounded-xl shadow-md flex items-center justify-center text-white text-5xl font-bold`}>
-                        {member.name.split(' ').map(n => n[0]).join('')}
-                      </div>
+                      <Image
+                        src={member.image}
+                        alt={member.name}
+                        width={192}
+                        height={192}
+                        className="w-full h-full object-cover rounded-xl shadow-md"
+                      />
                     </div>
 
                     {/* Name and Title */}
                     <h3 className="text-2xl font-black text-slate-900 mb-1">{member.name}</h3>
                     <p className={`${colors.text} font-semibold mb-3`}>{member.title}</p>
-
-                    {/* Education Badges */}
-                    <div className="flex flex-wrap gap-2 justify-center mb-4">
-                      {member.education.map((edu, idx) => (
-                        <span key={idx} className={`px-3 py-1 ${colors.badge} text-xs font-semibold rounded-full`}>
-                          {edu}
-                        </span>
-                      ))}
-                    </div>
 
                     {/* Social Links */}
                     <div className="flex space-x-3 mb-6">
