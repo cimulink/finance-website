@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Search } from "lucide-react";
@@ -26,26 +26,43 @@ interface BlogPost {
 interface BlogGridClientProps {
   posts: BlogPost[];
   categories: string[];
+  isHomePage?: boolean;
 }
 
-export default function BlogGridClient({ posts, categories }: BlogGridClientProps) {
+export default function BlogGridClient({ posts, categories, isHomePage = false }: BlogGridClientProps) {
   const [selectedCategory, setSelectedCategory] = useState("All Topics");
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
+  const [isMobile, setIsMobile] = useState(false);
   const postsPerPage = 6;
+
+  // Detect screen size
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const checkMobile = () => setIsMobile(window.innerWidth < 768);
+      checkMobile();
+      window.addEventListener('resize', checkMobile);
+      return () => window.removeEventListener('resize', checkMobile);
+    }
+  }, []);
 
   // Filter and search posts
   const filteredPosts = useMemo(() => {
     let filtered = posts;
 
-    // Filter by category
+    // On home page, limit posts based on screen size
+    if (isHomePage) {
+      return filtered.slice(0, isMobile ? 3 : 6);
+    }
+
+    // Filter by category (only on blog page)
     if (selectedCategory !== "All Topics") {
       filtered = filtered.filter(
         (post) => post.category?.title === selectedCategory
       );
     }
 
-    // Filter by search query
+    // Filter by search query (only on blog page)
     if (searchQuery.trim()) {
       const query = searchQuery.toLowerCase();
       filtered = filtered.filter((post) => {
@@ -64,7 +81,7 @@ export default function BlogGridClient({ posts, categories }: BlogGridClientProp
     }
 
     return filtered;
-  }, [posts, selectedCategory, searchQuery]);
+  }, [posts, selectedCategory, searchQuery, isHomePage, isMobile]);
 
   // Pagination
   const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
@@ -86,39 +103,43 @@ export default function BlogGridClient({ posts, categories }: BlogGridClientProp
 
   return (
     <>
-      {/* Search Bar */}
-      <div className="mb-8 max-w-2xl mx-auto">
-        <div className="relative">
-          <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400 h-5 w-5" />
-          <input
-            type="text"
-            placeholder="Search articles by title, content, or topic..."
-            value={searchQuery}
-            onChange={(e) => handleSearchChange(e.target.value)}
-            className="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-full focus:border-teal-600 focus:outline-none text-slate-700 placeholder-slate-400"
-          />
+      {/* Search Bar - Only show on blog page */}
+      {!isHomePage && (
+        <div className="mb-8 max-w-2xl mx-auto">
+          <div className="relative">
+            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400 h-5 w-5" />
+            <input
+              type="text"
+              placeholder="Search articles by title, content, or topic..."
+              value={searchQuery}
+              onChange={(e) => handleSearchChange(e.target.value)}
+              className="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-full focus:border-teal-600 focus:outline-none text-slate-700 placeholder-slate-400"
+            />
+          </div>
         </div>
-      </div>
+      )}
 
-      {/* Categories */}
-      <div className="flex flex-wrap justify-center gap-3 mb-12">
-        {categories.map((cat) => (
-          <button
-            key={cat}
-            onClick={() => handleCategoryChange(cat)}
-            className={`px-6 py-2 font-medium rounded-full border-2 transition-all duration-300 ${
-              selectedCategory === cat
-                ? "bg-teal-600 text-white border-teal-600 hover:bg-teal-700"
-                : "bg-white text-slate-700 border-slate-200 hover:border-teal-600 hover:text-teal-600"
-            }`}
-          >
-            {cat}
-          </button>
-        ))}
-      </div>
+      {/* Categories - Only show on blog page */}
+      {!isHomePage && (
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => handleCategoryChange(cat)}
+              className={`px-6 py-2 font-medium rounded-full border-2 transition-all duration-300 ${
+                selectedCategory === cat
+                  ? "bg-teal-600 text-white border-teal-600 hover:bg-teal-700"
+                  : "bg-white text-slate-700 border-slate-200 hover:border-teal-600 hover:text-teal-600"
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+      )}
 
-      {/* Results count */}
-      {(searchQuery || selectedCategory !== "All Topics") && (
+      {/* Results count - Only show on blog page */}
+      {!isHomePage && (searchQuery || selectedCategory !== "All Topics") && (
         <div className="text-center mb-6 text-slate-600">
           Found {filteredPosts.length} {filteredPosts.length === 1 ? "article" : "articles"}
         </div>
@@ -195,8 +216,8 @@ export default function BlogGridClient({ posts, categories }: BlogGridClientProp
         </div>
       )}
 
-      {/* Pagination */}
-      {totalPages > 1 && (
+      {/* Pagination - Only show on blog page */}
+      {!isHomePage && totalPages > 1 && (
         <div className="flex justify-center items-center gap-2 mt-12">
           <button
             onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}

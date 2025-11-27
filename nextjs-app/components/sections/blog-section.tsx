@@ -14,7 +14,10 @@ export default async function BlogSection() {
   const featuredPost = allPosts.find(post => post.featured) || allPosts[0];
 
   // Get all posts (excluding featured if it's in the list) for the grid
-  const blogPosts = allPosts.filter(post => post._id !== featuredPost?._id);
+  const allBlogPosts = allPosts.filter(post => post._id !== featuredPost?._id);
+
+  // Limit to 6 latest posts for home page display
+  const blogPosts = allBlogPosts.slice(0, 6);
 
   // Build categories list
   const categories = ["All Topics", ...sanityCategories.map(cat => cat.title)];
@@ -84,7 +87,18 @@ export default async function BlogSection() {
         )}
 
         {/* Blog Grid with Search and Filters */}
-        <BlogGridClient posts={blogPosts} categories={categories} />
+        <BlogGridClient posts={blogPosts} categories={categories} isHomePage={true} />
+
+        {/* Read More Blogs Button */}
+        <div className="text-center mt-12">
+          <Link
+            href="/blog"
+            className="inline-flex items-center px-8 py-4 bg-teal-600 text-white font-bold rounded-full hover:bg-teal-700 shadow-lg transition transform hover:scale-105"
+          >
+            Read More Blogs
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </Link>
+        </div>
       </div>
     </section>
   );
