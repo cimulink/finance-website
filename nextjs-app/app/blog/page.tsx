@@ -44,7 +44,7 @@ export default async function BlogListingPage() {
 
             {/* Sticky Sidebar (Right - 1 column) */}
             <div className="lg:col-span-1">
-              <div className="sticky top-24 space-y-6">
+              <div className="sticky top-24 self-start space-y-6">
                 {/* Our Services 2x2 */}
                 <div className="bg-white rounded-xl shadow-lg p-6">
                   <h3 className="text-lg font-bold text-slate-900 mb-4 flex items-center">
