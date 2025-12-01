@@ -73,24 +73,24 @@ const components: PortableTextComponents = {
   },
   list: {
     bullet: ({ children }) => (
-      <ul className="list-disc list-inside space-y-2 mb-6 ml-4">
+      <ul className="list-disc list-outside space-y-2 mb-6 ml-6 pl-0">
         {children}
       </ul>
     ),
     number: ({ children }) => (
-      <ol className="list-decimal list-inside space-y-2 mb-6 ml-4">
+      <ol className="list-decimal list-outside space-y-2 mb-6 ml-6 pl-0">
         {children}
       </ol>
     ),
   },
   listItem: {
     bullet: ({ children }) => (
-      <li className="text-slate-700 leading-relaxed">
+      <li className="text-slate-700 leading-relaxed pl-2">
         {children}
       </li>
     ),
     number: ({ children }) => (
-      <li className="text-slate-700 leading-relaxed">
+      <li className="text-slate-700 leading-relaxed pl-2">
         {children}
       </li>
     ),
