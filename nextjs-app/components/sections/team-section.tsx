@@ -27,6 +27,7 @@ export default function TeamSection() {
       name: "Adarsh Katta",
       title: "Co-Founder, InvestAlly",
       subtitle: "Chartered Accountant • CFA Level II",
+      linkedin: "https://www.linkedin.com/in/adarsh-katta",
       image: "/adarsh katta.JPG",
       description: "Adarsh is the research brain behind InvestAlly. With deep experience as a Private Equity analyst across global institutions like Brookfield, HSBC and JP Morgan, he specialises in identifying the right funds, evaluating risks, and conducting high-quality due diligence. His expertise helps clients make smarter, more informed investment decisions. He brings a sharp analytical eye, a disciplined research approach, and a strong understanding of how great investments are built — ensuring that data, clarity, and conviction back every recommendation at InvestAlly.",
       credentials: [
