@@ -17,6 +17,20 @@ export interface GifEmbed {
   size: 'small' | 'medium' | 'large' | 'full'
 }
 
+export interface SanityImageHotspot {
+  x: number
+  y: number
+  height: number
+  width: number
+}
+
+export interface SanityImageCrop {
+  top: number
+  bottom: number
+  left: number
+  right: number
+}
+
 export interface BlogPost {
   _id: string
   _createdAt: string
@@ -32,6 +46,8 @@ export interface BlogPost {
       _type: 'reference'
     }
     alt: string
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
   }
   mainVideo?: VideoEmbed
   category: {

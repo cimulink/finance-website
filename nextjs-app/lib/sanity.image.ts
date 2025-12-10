@@ -5,10 +5,14 @@ import type { SanityImageSource } from '@sanity/image-url/lib/types/types'
 const builder = imageUrlBuilder(client)
 
 export function urlForImage(source: SanityImageSource) {
-  return builder.image(source).auto('format').fit('max')
+  // The builder automatically picks up hotspot and crop data from the source
+  // Using fit('crop') ensures the image is cropped to the requested dimensions
+  // while respecting the hotspot focal point
+  return builder.image(source).auto('format').fit('crop')
 }
 
 // Helper function to get optimized image URL with specific dimensions
+// This version also respects hotspot and crop data
 export function getImageUrl(
   source: SanityImageSource,
   width?: number,

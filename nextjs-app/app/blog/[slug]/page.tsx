@@ -112,17 +112,17 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
                 {/* Featured Image */}
                 {imageUrl ? (
-                  <div className="relative w-full h-96 rounded-2xl shadow-xl mb-12 overflow-hidden">
+                  <div className="relative w-full h-64 sm:h-80 md:h-96 rounded-2xl shadow-xl mb-12 overflow-hidden bg-slate-100">
                     <Image
                       src={imageUrl}
                       alt={post.mainImage?.alt || post.title}
                       fill
-                      className="object-cover"
+                      className="object-contain"
                       priority
                     />
                   </div>
                 ) : (
-                  <div className="w-full h-96 bg-gradient-to-br from-teal-400 to-teal-600 rounded-2xl shadow-xl mb-12 flex items-center justify-center text-white text-3xl font-bold">
+                  <div className="w-full h-64 sm:h-80 md:h-96 bg-gradient-to-br from-teal-400 to-teal-600 rounded-2xl shadow-xl mb-12 flex items-center justify-center text-white text-3xl font-bold">
                     {post.title.substring(0, 20)}
                   </div>
                 )}

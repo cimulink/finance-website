@@ -11,7 +11,9 @@ export const blogPostsQuery = groq`
     excerpt,
     mainImage {
       asset->,
-      alt
+      alt,
+      hotspot,
+      crop
     },
     mainVideo {
       videoType,
@@ -55,7 +57,9 @@ export const featuredPostQuery = groq`
     excerpt,
     mainImage {
       asset->,
-      alt
+      alt,
+      hotspot,
+      crop
     },
     mainVideo {
       videoType,
@@ -97,7 +101,9 @@ export const blogPostBySlugQuery = groq`
     excerpt,
     mainImage {
       asset->,
-      alt
+      alt,
+      hotspot,
+      crop
     },
     mainVideo {
       videoType,
@@ -142,7 +148,9 @@ export const postsByCategoryQuery = groq`
     excerpt,
     mainImage {
       asset->,
-      alt
+      alt,
+      hotspot,
+      crop
     },
     mainVideo {
       videoType,
@@ -206,7 +214,9 @@ export const relatedPostsQuery = groq`
     excerpt,
     mainImage {
       asset->,
-      alt
+      alt,
+      hotspot,
+      crop
     },
     mainVideo {
       videoType,
