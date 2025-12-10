@@ -34,7 +34,7 @@ export default function TeamSection() {
       credentials: [
         { icon: Award, title: "Chartered Accountant", subtitle: "CFA Level II" },
         { icon: Shield, title: "Mutual Fund Distributor", subtitle: "ARN Number: 339359" },
-        { icon: Briefcase, title: "Experience", subtitle: "PE Analyst - Brookfield, HSBC, JP Morgan" },
+        { icon: Briefcase, title: "Experience", subtitle: "Private Equity Specialist - Brookfield, HSBC, JP Morgan" },
       ],
       color: "teal"
     },
