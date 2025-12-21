@@ -57,10 +57,8 @@ export default function AboutUsPage() {
                                 About Us
                             </h1>
                             <p className="text-xl text-slate-600 leading-relaxed mb-6">
-                                InvestAlly is India's leading financial advisory platform, dedicated to helping families and individuals achieve their financial goals through expert guidance and innovative solutions.
-                            </p>
-                            <p className="text-xl text-slate-600 leading-relaxed mb-6">
-                                We don't sell investments - we build investors.
+                                Personalized financial guidance that grows with you - built on trust, transparency, and continuous review.
+                                Because wealth creation isn't a one-time act- it's a lifelong relationship.
                             </p>
                         </div>
 
