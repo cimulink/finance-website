@@ -12,7 +12,7 @@ export default function Footer() {
             <Link href="/" className="inline-block mb-4">
               <Image
                 src="/investally_logo.png"
-                alt="Investally Logo"
+                alt="Investally"
                 width={180}
                 height={60}
                 className="h-12 w-auto"
@@ -51,7 +51,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/#about" className="text-slate-400 hover:text-teal-500 transition-colors duration-300">
+                <Link href="/about-us" className="text-slate-400 hover:text-teal-500 transition-colors duration-300">
                   About Us
                 </Link>
               </li>

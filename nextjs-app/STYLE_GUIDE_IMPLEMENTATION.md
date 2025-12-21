@@ -96,7 +96,7 @@ This document summarizes the changes made to align the Investally Next.js applic
 ```tsx
 <Link href="/" className="inline-block mb-4">
   <Image
-    src="/investally_logo.png"
+    src="/investally_only_logo.png"
     alt="Investally Logo"
     width={180}
     height={60}
